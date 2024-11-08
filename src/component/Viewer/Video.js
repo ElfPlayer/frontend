@@ -272,6 +272,32 @@ export default function VideoViewer() {
             });
     };
 
+    const gotoPreVideo=()=>{
+        const index=playlist.findIndex(obj=>obj.name===title)
+        if(index<=0){
+            ToggleSnackbar(
+                "top",
+                "center",
+                `前面没有更多了`,
+                "info"
+            );
+            return
+        }
+        switchVideo(playlist[index-1])      
+    }
+    const gotoNextVideo=()=>{
+        const index=playlist.findIndex(obj=>obj.name===title)
+        if(index>=playlist.length-1){
+            ToggleSnackbar(
+                "top",
+                "center",
+                `后面没有更多了`,
+                "info"
+            );
+            return
+        }
+        switchVideo(playlist[index+1])   
+    }
     return (
         <div className={classes.layout}>
             <Paper className={classes.root} elevation={1}>
@@ -328,6 +354,8 @@ export default function VideoViewer() {
                 >
                     {t("fileManager.openInExternalPlayer")}
                 </Button>
+                <Button className={classes.actionButton} onClick={()=>{gotoPreVideo()}} variant="outlined">上一个</Button>
+                <Button className={classes.actionButton} onClick={()=>{gotoNextVideo()}} variant="outlined">下一个</Button>
             </div>
             <SelectMenu
                 selected={subtitleSelected}

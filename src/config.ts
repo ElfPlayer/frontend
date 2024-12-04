@@ -50,7 +50,7 @@ export const codePreviewSuffix = {
 };
 export const mediaType = {
     audio: ["mp3", "flac", "ape", "wav", "acc", "ogg", "m4a"],
-    video: ["mp4", "flv", "avi", "wmv", "mkv", "rm", "rmvb", "mov", "ogv"],
+    video: ["mp4", "flv", "avi", "mkv", "rm", "rmvb", "mov", "ogv"],
     image: [
         "bmp",
         "iff",

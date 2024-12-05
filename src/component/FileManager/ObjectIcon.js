@@ -122,6 +122,7 @@ export default function ObjectIcon(props) {
     };
 
     const handleDoubleClick = () => {
+        // console.log(Date.now())
         if (props.file.type === "up") {
             return;
         }

@@ -774,7 +774,7 @@ export const openPreview = (share: any) => {
                 return;
             }
         }
-
+        // console.log(selected)
         dispatch(changeContextMenu("file", false));
         switch (isPreviewable(selected[0].name)) {
             case "img":

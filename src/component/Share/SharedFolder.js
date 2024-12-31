@@ -147,7 +147,7 @@ class SharedFolderComponent extends Component {
 
 const SharedFolder = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(SharedFolderComponent)));
 
 export default SharedFolder;

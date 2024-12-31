@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
-            3
+            3,
         )}px`,
     },
     avatar: {
@@ -69,16 +69,16 @@ function Reset() {
     });
     const [loading, setLoading] = useState(false);
     const forgetCaptcha = useSelector(
-        (state) => state.siteConfig.forgetCaptcha
+        (state) => state.siteConfig.forgetCaptcha,
     );
     const registerEnabled = useSelector(
-        (state) => state.siteConfig.registerEnabled
+        (state) => state.siteConfig.registerEnabled,
     );
     const dispatch = useDispatch();
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const handleInputChange = (name) => (e) => {
         setInput({
@@ -115,7 +115,7 @@ function Reset() {
                     "top",
                     "right",
                     t("login.resetEmailSent"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {

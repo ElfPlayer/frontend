@@ -128,14 +128,14 @@ export default function TaskList({
     const path = useSelector((state) => state.navigator.path);
     const [expanded, setExpanded] = useState(true);
     const [useAvgSpeed, setUseAvgSpeed] = useState(
-        Auth.GetPreferenceWithDefault("use_avg_speed", true)
+        Auth.GetPreferenceWithDefault("use_avg_speed", true),
     );
     const [anchorEl, setAnchorEl] = useState(null);
     const [filter, setFilter] = useState(
-        Auth.GetPreferenceWithDefault("task_filter", "default")
+        Auth.GetPreferenceWithDefault("task_filter", "default"),
     );
     const [sorter, setSorter] = useState(
-        Auth.GetPreferenceWithDefault("task_sorter", "default")
+        Auth.GetPreferenceWithDefault("task_sorter", "default"),
     );
     const [refreshList, setRefreshList] = useState(false);
 
@@ -175,11 +175,11 @@ export default function TaskList({
                                     theme.palette.type === "light"
                                         ? lighten(
                                               theme.palette.primary.main,
-                                              0.2
+                                              0.2,
                                           )
                                         : lighten(
                                               theme.palette.primary.main,
-                                              0.2
+                                              0.2,
                                           ),
                                 width:
                                     (progress.processedSize /
@@ -192,7 +192,7 @@ export default function TaskList({
                     </div>
                 </Fade>
             ) : null,
-        [progress, expanded, classes, theme]
+        [progress, expanded, classes, theme],
     );
 
     const list = useMemo(() => {

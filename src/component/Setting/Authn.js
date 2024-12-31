@@ -55,7 +55,7 @@ export default function Authn(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const deleteCredential = (id) => {
@@ -67,7 +67,7 @@ export default function Authn(props) {
                     "top",
                     "right",
                     t("setting.authenticatorRemoved"),
-                    "success"
+                    "success",
                 );
                 props.remove(id);
             })
@@ -87,7 +87,7 @@ export default function Authn(props) {
                 "top",
                 "right",
                 t("setting.browserNotSupported"),
-                "warning"
+                "warning",
             );
 
             return;
@@ -96,10 +96,10 @@ export default function Authn(props) {
             .then((response) => {
                 const credentialCreationOptions = response.data;
                 credentialCreationOptions.publicKey.challenge = bufferDecode(
-                    credentialCreationOptions.publicKey.challenge
+                    credentialCreationOptions.publicKey.challenge,
                 );
                 credentialCreationOptions.publicKey.user.id = bufferDecode(
-                    credentialCreationOptions.publicKey.user.id
+                    credentialCreationOptions.publicKey.user.id,
                 );
                 if (credentialCreationOptions.publicKey.excludeCredentials) {
                     for (
@@ -113,7 +113,7 @@ export default function Authn(props) {
                             i
                         ].id = bufferDecode(
                             credentialCreationOptions.publicKey
-                                .excludeCredentials[i].id
+                                .excludeCredentials[i].id,
                         );
                     }
                 }
@@ -136,7 +136,7 @@ export default function Authn(props) {
                             attestationObject: bufferEncode(attestationObject),
                             clientDataJSON: bufferEncode(clientDataJSON),
                         },
-                    })
+                    }),
                 );
             })
             .then((response) => {
@@ -145,7 +145,7 @@ export default function Authn(props) {
                     "top",
                     "right",
                     t("setting.authenticatorAdded"),
-                    "success"
+                    "success",
                 );
                 return;
             })

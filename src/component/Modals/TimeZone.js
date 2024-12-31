@@ -29,7 +29,7 @@ export default function TimeZoneDialog(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const saveZoneInfo = () => {

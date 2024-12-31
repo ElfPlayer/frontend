@@ -71,7 +71,7 @@ function MySnackbarContent(props) {
                     <Icon
                         className={classNames(
                             classes.icon,
-                            classes.iconVariant
+                            classes.iconVariant,
                         )}
                     />
                     {message}
@@ -145,7 +145,7 @@ class SnackbarCompoment extends Component {
 
 const AlertBar = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(SnackbarCompoment));
 
 export default AlertBar;

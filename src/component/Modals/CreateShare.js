@@ -116,7 +116,7 @@ export default function CreatShare(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const lastSubmit = useRef(null);
@@ -282,7 +282,7 @@ export default function CreatShare(props) {
                                     </ListItemIcon>
                                     <ListItemText
                                         primary={t(
-                                            "modals.usePasswordProtection"
+                                            "modals.usePasswordProtection",
                                         )}
                                     />
                                     <ListItemSecondaryAction>
@@ -316,7 +316,7 @@ export default function CreatShare(props) {
                                             <InputAdornment position="end">
                                                 <Tooltip
                                                     title={t(
-                                                        "modals.randomlyGenerate"
+                                                        "modals.randomlyGenerate",
                                                     )}
                                                 >
                                                     <IconButton
@@ -366,7 +366,7 @@ export default function CreatShare(props) {
                                     </ListItemIcon>
                                     <ListItemText
                                         primary={t(
-                                            "modals.expireAutomatically"
+                                            "modals.expireAutomatically",
                                         )}
                                     />
                                     <ListItemSecondaryAction>
@@ -397,10 +397,10 @@ export default function CreatShare(props) {
                                                     <MenuItem value={v} key={v}>
                                                         {t(
                                                             "modals.downloadLimitOptions",
-                                                            { num: v }
+                                                            { num: v },
                                                         )}
                                                     </MenuItem>
-                                                )
+                                                ),
                                             )}
                                             <MenuItem value={-1}>
                                                 <em>{t("modals.custom")}</em>
@@ -417,7 +417,7 @@ export default function CreatShare(props) {
                                             value={customDownloads}
                                             onChange={(e) =>
                                                 setCustomDownloads(
-                                                    e.target.value
+                                                    e.target.value,
                                                 )
                                             }
                                             endAdornment={

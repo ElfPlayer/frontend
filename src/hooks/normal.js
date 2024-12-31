@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 
 const NormalCaptcha = forwardRef(function NormalCaptcha(
     { captchaRef, setLoading },
-    ref
+    ref,
 ) {
     const { t } = useTranslation();
     const classes = useStyle();
@@ -34,7 +34,7 @@ const NormalCaptcha = forwardRef(function NormalCaptcha(
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const refreshCaptcha = () => {
@@ -48,7 +48,7 @@ const NormalCaptcha = forwardRef(function NormalCaptcha(
                     "top",
                     "right",
                     t("login.captchaError", { message: error.message }),
-                    "error"
+                    "error",
                 );
             });
     };
@@ -120,7 +120,7 @@ export default function useNormalCaptcha(captchaRefreshRef, setLoading) {
                 />
             );
         },
-        [captchaParamsRef, captchaRefreshRef, setLoading]
+        [captchaParamsRef, captchaRefreshRef, setLoading],
     );
 
     return {

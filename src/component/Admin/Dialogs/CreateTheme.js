@@ -301,8 +301,8 @@ export default function CreateTheme({ open, onClose, onSubmit }) {
                             <div
                                 className={classes.statusBar}
                                 style={{
-                                    backgroundColor: subTheme().palette.primary
-                                        .dark,
+                                    backgroundColor:
+                                        subTheme().palette.primary.dark,
                                 }}
                             />
                             <AppBar position="static">

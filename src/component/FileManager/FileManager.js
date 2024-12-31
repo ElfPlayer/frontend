@@ -112,5 +112,5 @@ FileManager.propTypes = {};
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(FileManager)));

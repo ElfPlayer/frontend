@@ -28,15 +28,17 @@ export default function EditNode() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
         API.get("/admin/node/" + id)
             .then((response) => {
                 response.data.Rank = response.data.Rank.toString();
-                response.data.Aria2OptionsSerialized.interval = response.data.Aria2OptionsSerialized.interval.toString();
-                response.data.Aria2OptionsSerialized.timeout = response.data.Aria2OptionsSerialized.timeout.toString();
+                response.data.Aria2OptionsSerialized.interval =
+                    response.data.Aria2OptionsSerialized.interval.toString();
+                response.data.Aria2OptionsSerialized.timeout =
+                    response.data.Aria2OptionsSerialized.timeout.toString();
                 response.data.Aria2Enabled = response.data.Aria2Enabled
                     ? "true"
                     : "false";

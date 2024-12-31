@@ -86,7 +86,7 @@ export default function Group() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const loadList = () => {
@@ -114,7 +114,7 @@ export default function Group() {
                 "top",
                 "right",
                 query.get("msg") + ", " + query.get("err"),
-                "warning"
+                "warning",
             );
         }
     }, [location]);
@@ -208,7 +208,7 @@ export default function Group() {
                                                 onClick={() =>
                                                     history.push(
                                                         "/admin/group/edit/" +
-                                                            row.ID
+                                                            row.ID,
                                                     )
                                                 }
                                                 size={"small"}

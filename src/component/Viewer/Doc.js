@@ -49,19 +49,19 @@ export default function DocViewer() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const CloseAllModals = useCallback(
         () => dispatch(closeAllModals()),
-        [dispatch]
+        [dispatch],
     );
     const OpenShareDialog = useCallback(
         () => dispatch(openShareDialog()),
-        [dispatch]
+        [dispatch],
     );
     const SetModalsLoading = useCallback(
         (status) => dispatch(setModalsLoading(status)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -78,11 +78,11 @@ export default function DocViewer() {
                 if (response.data.access_token) {
                     response.data.url = response.data.url.replaceAll(
                         "lng",
-                        i18n.resolvedLanguage.toLowerCase()
+                        i18n.resolvedLanguage.toLowerCase(),
                     );
                     response.data.url = response.data.url.replaceAll(
                         "darkmode",
-                        theme.palette.type === "dark" ? "2" : "1"
+                        theme.palette.type === "dark" ? "2" : "1",
                     );
                 }
 
@@ -134,7 +134,7 @@ export default function DocViewer() {
             // The sandbox attribute is needed to allow automatic redirection to the O365 sign-in page in the business user flow
             office_frame.setAttribute(
                 "sandbox",
-                "allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
+                "allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox",
             );
             frameholder.appendChild(office_frame);
             document.getElementById("office_form").submit();

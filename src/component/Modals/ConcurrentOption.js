@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({}));
 export default function ConcurrentOptionDialog({ open, onClose, onSave }) {
     const { t } = useTranslation();
     const [count, setCount] = useState(
-        Auth.GetPreferenceWithDefault("concurrent_limit", "5")
+        Auth.GetPreferenceWithDefault("concurrent_limit", "5"),
     );
     const classes = useStyles();
 

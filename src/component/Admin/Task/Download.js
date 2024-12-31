@@ -94,7 +94,7 @@ export default function Download() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const loadList = () => {
@@ -172,7 +172,7 @@ export default function Download() {
         } else if (selectedIndex > 0) {
             newSelected = newSelected.concat(
                 selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1)
+                selected.slice(selectedIndex + 1),
             );
         }
 
@@ -399,7 +399,7 @@ export default function Download() {
                                             {users[row.UserID]
                                                 ? users[row.UserID].Nick
                                                 : tDashboard(
-                                                      "file.unknownUploader"
+                                                      "file.unknownUploader",
                                                   )}
                                         </Link>
                                     </TableCell>

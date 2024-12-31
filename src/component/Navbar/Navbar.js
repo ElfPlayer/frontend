@@ -40,7 +40,7 @@ import {
     Tooltip,
     Typography,
     withStyles,
-    withTheme
+    withTheme,
 } from "@material-ui/core";
 import Auth from "../../middleware/Auth";
 import API from "../../middleware/Api";
@@ -81,7 +81,7 @@ const drawerWidthMobile = 270;
 
 const ListItem = withStyles((theme) => ({
     root: {
-        borderRadius:theme.shape.borderRadius,
+        borderRadius: theme.shape.borderRadius,
     },
 }))(MuiListItem);
 
@@ -301,9 +301,9 @@ const styles = (theme) => ({
     minStickDrawer: {
         overflowY: "auto",
     },
-    paddingList:{
-        padding:theme.spacing(1),
-    }
+    paddingList: {
+        padding: theme.spacing(1),
+    },
 });
 class NavbarCompoment extends Component {
     constructor(props) {
@@ -328,7 +328,7 @@ class NavbarCompoment extends Component {
             this.props.selected.length <= 1 &&
                 !(!this.props.isMultiple && this.props.withFile)
                 ? this.props.theme.palette.primary.main
-                : this.props.theme.palette.background.default
+                : this.props.theme.palette.background.default,
         );
     }
 
@@ -342,7 +342,7 @@ class NavbarCompoment extends Component {
                     ? this.props.theme.palette.type === "dark"
                         ? this.props.theme.palette.background.default
                         : this.props.theme.palette.primary.main
-                    : this.props.theme.palette.background.default
+                    : this.props.theme.palette.background.default,
             );
         }
     };
@@ -370,7 +370,7 @@ class NavbarCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("login.loggedOut"),
-                    "success"
+                    "success",
                 );
                 Auth.signout();
                 window.location.reload();
@@ -381,7 +381,7 @@ class NavbarCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "warning"
+                    "warning",
                 );
             })
             .finally(() => {
@@ -394,7 +394,7 @@ class NavbarCompoment extends Component {
         const user = Auth.GetUser(this.props.isLogin);
         const isHomePage = pathHelper.isHomePage(this.props.location.pathname);
         const isSharePage = pathHelper.isSharePage(
-            this.props.location.pathname
+            this.props.location.pathname,
         );
 
         const drawer = (
@@ -483,7 +483,7 @@ class NavbarCompoment extends Component {
                                             key="个人设置"
                                             onClick={() =>
                                                 this.props.history.push(
-                                                    "/setting?"
+                                                    "/setting?",
                                                 )
                                             }
                                         >
@@ -584,7 +584,7 @@ class NavbarCompoment extends Component {
                                 aria-label="Open drawer"
                                 onClick={() =>
                                     this.props.handleDesktopToggle(
-                                        !this.props.desktopOpen
+                                        !this.props.desktopOpen,
                                     )
                                 }
                                 className={classes.menuButtonDesktop}
@@ -595,7 +595,7 @@ class NavbarCompoment extends Component {
                         {this.props.selected.length > 0 &&
                             (isHomePage ||
                                 pathHelper.isSharePage(
-                                    this.props.location.pathname
+                                    this.props.location.pathname,
                                 )) && (
                                 <Grow in={this.props.selected.length > 0}>
                                     <IconButton
@@ -635,11 +635,11 @@ class NavbarCompoment extends Component {
                                     {this.props.withFile &&
                                         (isHomePage ||
                                             pathHelper.isSharePage(
-                                                this.props.location.pathname
+                                                this.props.location.pathname,
                                             )) &&
                                         "(" +
                                             sizeToString(
-                                                this.props.selected[0].size
+                                                this.props.selected[0].size,
                                             ) +
                                             ")"}
                                 </Typography>
@@ -661,7 +661,7 @@ class NavbarCompoment extends Component {
                                     {!this.props.isMultiple &&
                                         this.props.withFile &&
                                         isPreviewable(
-                                            this.props.selected[0].name
+                                            this.props.selected[0].name,
                                         ) && (
                                             <Grow
                                                 in={
@@ -669,13 +669,13 @@ class NavbarCompoment extends Component {
                                                     this.props.withFile &&
                                                     isPreviewable(
                                                         this.props.selected[0]
-                                                            .name
+                                                            .name,
                                                     )
                                                 }
                                             >
                                                 <Tooltip
                                                     title={t(
-                                                        "fileManager.open"
+                                                        "fileManager.open",
                                                     )}
                                                 >
                                                     <IconButton
@@ -683,7 +683,7 @@ class NavbarCompoment extends Component {
                                                         onClick={() =>
                                                             this.props.openPreview(
                                                                 this.props
-                                                                    .shareInfo
+                                                                    .shareInfo,
                                                             )
                                                         }
                                                     >
@@ -702,7 +702,7 @@ class NavbarCompoment extends Component {
                                             >
                                                 <Tooltip
                                                     title={t(
-                                                        "fileManager.download"
+                                                        "fileManager.download",
                                                     )}
                                                 >
                                                     <IconButton
@@ -731,7 +731,7 @@ class NavbarCompoment extends Component {
                                             >
                                                 <Tooltip
                                                     title={t(
-                                                        "fileManager.download"
+                                                        "fileManager.download",
                                                     )}
                                                 >
                                                     <IconButton
@@ -755,7 +755,7 @@ class NavbarCompoment extends Component {
                                         >
                                             <Tooltip
                                                 title={t(
-                                                    "fileManager.batchDownload"
+                                                    "fileManager.batchDownload",
                                                 )}
                                             >
                                                 <IconButton
@@ -776,7 +776,7 @@ class NavbarCompoment extends Component {
                                             <Grow in={!this.props.isMultiple}>
                                                 <Tooltip
                                                     title={t(
-                                                        "fileManager.share"
+                                                        "fileManager.share",
                                                     )}
                                                 >
                                                     <IconButton
@@ -818,7 +818,7 @@ class NavbarCompoment extends Component {
                                                 >
                                                     <Tooltip
                                                         title={t(
-                                                            "fileManager.move"
+                                                            "fileManager.move",
                                                         )}
                                                     >
                                                         <IconButton
@@ -841,7 +841,7 @@ class NavbarCompoment extends Component {
                                             >
                                                 <Tooltip
                                                     title={t(
-                                                        "fileManager.delete"
+                                                        "fileManager.delete",
                                                     )}
                                                 >
                                                     <IconButton
@@ -865,7 +865,7 @@ class NavbarCompoment extends Component {
                                                 >
                                                     <Tooltip
                                                         title={t(
-                                                            "fileManager.moreActions"
+                                                            "fileManager.moreActions",
                                                         )}
                                                     >
                                                         <IconButton
@@ -873,7 +873,7 @@ class NavbarCompoment extends Component {
                                                             onClick={() =>
                                                                 this.props.changeContextMenu(
                                                                     "file",
-                                                                    true
+                                                                    true,
                                                                 )
                                                             }
                                                         >
@@ -958,11 +958,11 @@ NavbarCompoment.propTypes = {
 
 const Navbar = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(
     withTheme(
-        withStyles(styles)(withRouter(withTranslation()(NavbarCompoment)))
-    )
+        withStyles(styles)(withRouter(withTranslation()(NavbarCompoment))),
+    ),
 );
 
 export default Navbar;

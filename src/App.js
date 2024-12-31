@@ -35,8 +35,8 @@ import MusicPlayer from "./component/FileManager/MusicPlayer";
 import EpubViewer from "./component/Viewer/Epub";
 import { useTranslation } from "react-i18next";
 
-const PDFViewer = React.lazy(() =>
-    import(/* webpackChunkName: "pdf" */ "./component/Viewer/PDF")
+const PDFViewer = React.lazy(
+    () => import(/* webpackChunkName: "pdf" */ "./component/Viewer/PDF"),
 );
 
 export default function App() {
@@ -83,7 +83,7 @@ export default function App() {
         changeThemeColor(
             themeConfig.palette.type === "dark"
                 ? theme.palette.background.default
-                : theme.palette.primary.main
+                : theme.palette.primary.main,
         );
         return theme;
     }, [prefersDarkMode, themeConfig]);

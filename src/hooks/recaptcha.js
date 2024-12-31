@@ -10,7 +10,7 @@ const Recaptcha = ({ captchaRef, setLoading }) => {
     const [captcha, setCaptcha] = useState("");
 
     const reCaptchaKey = useSelector(
-        (state) => state.siteConfig.captcha_ReCaptchaKey
+        (state) => state.siteConfig.captcha_ReCaptchaKey,
     );
 
     useEffect(() => {
@@ -56,7 +56,7 @@ export default function useRecaptcha(setLoading) {
                 />
             );
         },
-        [captchaParamsRef, setLoading]
+        [captchaParamsRef, setLoading],
     );
 
     return {

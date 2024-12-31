@@ -49,7 +49,7 @@ export const checkGetParameters = (field) => {
 
 export const changeThemeColor = (color) => {
     const metaThemeColor = window.document.querySelector(
-        "meta[name=theme-color]"
+        "meta[name=theme-color]",
     );
     metaThemeColor.setAttribute("content", color);
 };
@@ -123,7 +123,7 @@ export function randomStr(length) {
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
         result += characters.charAt(
-            Math.floor(Math.random() * charactersLength)
+            Math.floor(Math.random() * charactersLength),
         );
     }
     return result;

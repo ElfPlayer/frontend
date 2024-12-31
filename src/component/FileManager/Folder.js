@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         },
         backgroundColor: fade(
             theme.palette.primary.main,
-            theme.palette.type === "dark" ? 0.3 : 0.18
+            theme.palette.type === "dark" ? 0.3 : 0.18,
         ),
     },
 
@@ -97,7 +97,7 @@ export default function Folder({ folder, isActive, onIconClick }) {
                     [classes.notSelected]: !isSelected,
                     [classes.active]: isActive,
                 },
-                classes.button
+                classes.button,
             )}
         >
             <div

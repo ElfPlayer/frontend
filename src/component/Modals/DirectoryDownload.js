@@ -11,7 +11,7 @@ import {
     Checkbox,
 } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import { useTranslation } from "react-i18next"; 
+import { useTranslation } from "react-i18next";
 import { useInterval, usePrevious, useGetState } from "ahooks";
 import { cancelDirectoryDownload } from "../../redux/explorer/action";
 import Auth from "../../middleware/Auth";
@@ -38,7 +38,7 @@ export default function DirectoryDownloadDialog(props) {
 
     const logRef = useRef();
     const [autoScroll, setAutoScroll] = useState(
-        Auth.GetPreferenceWithDefault("autoScroll", true)
+        Auth.GetPreferenceWithDefault("autoScroll", true),
     );
     const previousLog = usePrevious(props.log, (prev, next) => true);
     const [timer, setTimer] = useState(-1);

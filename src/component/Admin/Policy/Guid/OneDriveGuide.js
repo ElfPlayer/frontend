@@ -121,12 +121,12 @@ export default function OneDriveGuide(props) {
     const [useCDN, setUseCDN] = useState(
         props.policy && props.policy.OptionsSerialized.od_proxy
             ? props.policy.OptionsSerialized.od_proxy !== ""
-            : false
+            : false,
     );
     const [useSharePoint, setUseSharePoint] = useState(
         props.policy && props.policy.OptionsSerialized.od_driver
             ? props.policy.OptionsSerialized.od_driver !== ""
-            : false
+            : false,
     );
     const [policy, setPolicy] = useState(
         props.policy
@@ -155,10 +155,10 @@ export default function OneDriveGuide(props) {
                       tps_limit: "0",
                       tps_limit_burst: "0",
                   },
-              }
+              },
     );
     const [policyID, setPolicyID] = useState(
-        props.policy ? props.policy.ID : 0
+        props.policy ? props.policy.ID : 0,
     );
     const [httpsAlert, setHttpsAlert] = useState(false);
 
@@ -187,7 +187,7 @@ export default function OneDriveGuide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -205,7 +205,7 @@ export default function OneDriveGuide(props) {
                             ...policy.OptionsSerialized,
                             od_redirect: new URL(
                                 "/api/v3/callback/onedrive/auth",
-                                response.data.siteURL
+                                response.data.siteURL,
                             ).toString(),
                         },
                     });
@@ -262,7 +262,7 @@ export default function OneDriveGuide(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(4);
                 setPolicyID(response.data);
@@ -513,7 +513,7 @@ export default function OneDriveGuide(props) {
                                         value={useSharePoint.toString()}
                                         onChange={(e) => {
                                             setUseSharePoint(
-                                                e.target.value === "true"
+                                                e.target.value === "true",
                                             );
                                         }}
                                         row
@@ -550,7 +550,7 @@ export default function OneDriveGuide(props) {
                                                     .od_driver
                                             }
                                             onChange={handleOptionChange(
-                                                "od_driver"
+                                                "od_driver",
                                             )}
                                             required={useSharePoint}
                                             label={t("spSiteURL")}
@@ -576,7 +576,7 @@ export default function OneDriveGuide(props) {
                                         value={useCDN.toString()}
                                         onChange={(e) => {
                                             setUseCDN(
-                                                e.target.value === "true"
+                                                e.target.value === "true",
                                             );
                                         }}
                                         row
@@ -607,7 +607,7 @@ export default function OneDriveGuide(props) {
                                                     .od_proxy
                                             }
                                             onChange={handleOptionChange(
-                                                "od_proxy"
+                                                "od_proxy",
                                             )}
                                             required={useCDN}
                                             label={t("odReverseProxyURL")}
@@ -754,7 +754,7 @@ export default function OneDriveGuide(props) {
                                             }
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -816,13 +816,13 @@ export default function OneDriveGuide(props) {
                                                     "top",
                                                     "right",
                                                     t(
-                                                        "cannotEnableForPrivateBucket"
+                                                        "cannotEnableForPrivateBucket",
                                                     ),
-                                                    "warning"
+                                                    "warning",
                                                 );
                                             }
                                             handleChange("IsOriginLinkEnable")(
-                                                e
+                                                e,
                                             );
                                         }}
                                         row
@@ -1029,7 +1029,7 @@ export default function OneDriveGuide(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>
@@ -1088,7 +1088,7 @@ export default function OneDriveGuide(props) {
                                                 .placeholder_with_size
                                         }
                                         onChange={handleOptionChange(
-                                            "placeholder_with_size"
+                                            "placeholder_with_size",
                                         )}
                                         row
                                     >
@@ -1133,7 +1133,7 @@ export default function OneDriveGuide(props) {
                                         value={
                                             parseFloat(
                                                 policy.OptionsSerialized
-                                                    .tps_limit
+                                                    .tps_limit,
                                             ) === 0
                                                 ? "false"
                                                 : "true"
@@ -1180,7 +1180,7 @@ export default function OneDriveGuide(props) {
                             <Collapse
                                 in={
                                     parseFloat(
-                                        policy.OptionsSerialized.tps_limit
+                                        policy.OptionsSerialized.tps_limit,
                                     ) !== 0
                                 }
                             >
@@ -1200,7 +1200,7 @@ export default function OneDriveGuide(props) {
                                                     .tps_limit
                                             }
                                             onChange={handleOptionChange(
-                                                "tps_limit"
+                                                "tps_limit",
                                             )}
                                         />
                                         <FormHelperText>
@@ -1224,7 +1224,7 @@ export default function OneDriveGuide(props) {
                                                     .tps_limit_burst
                                             }
                                             onChange={handleOptionChange(
-                                                "tps_limit_burst"
+                                                "tps_limit_burst",
                                             )}
                                         />
                                         <FormHelperText>

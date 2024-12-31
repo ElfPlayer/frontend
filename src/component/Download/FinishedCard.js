@@ -177,7 +177,7 @@ export default function FinishedCard(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const handleChange = () => (event, newExpanded) => {
@@ -273,7 +273,7 @@ export default function FinishedCard(props) {
                     <Typography noWrap>
                         {getPercent(
                             value.completedLength,
-                            value.length
+                            value.length,
                         ).toFixed(2)}
                         %
                     </Typography>
@@ -410,7 +410,7 @@ export default function FinishedCard(props) {
                                     {
                                         [classes.expanded]: expanded,
                                     },
-                                    classes.expand
+                                    classes.expand,
                                 )}
                             />
                         </IconButton>
@@ -427,7 +427,7 @@ export default function FinishedCard(props) {
                             onClick={() =>
                                 history.push(
                                     "/home?path=" +
-                                        encodeURIComponent(props.task.dst)
+                                        encodeURIComponent(props.task.dst),
                                 )
                             }
                         >

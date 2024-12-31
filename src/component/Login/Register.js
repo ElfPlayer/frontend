@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
-            3
+            3,
         )}px`,
     },
     avatar: {
@@ -95,7 +95,7 @@ function Register() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const history = useHistory();
     const theme = useTheme();
@@ -126,7 +126,7 @@ function Register() {
                 "top",
                 "right",
                 t("login.passwordNotMatch"),
-                "warning"
+                "warning",
             );
             return;
         }
@@ -151,7 +151,7 @@ function Register() {
                         "top",
                         "right",
                         t("login.signUpSuccess"),
-                        "success"
+                        "success",
                     );
                 }
             })
@@ -228,7 +228,7 @@ function Register() {
                                         id: "pwdRepeat",
                                     }}
                                     onChange={handleInputChange(
-                                        "password_repeat"
+                                        "password_repeat",
                                     )}
                                     InputProps={{
                                         startAdornment: !isMobile && (

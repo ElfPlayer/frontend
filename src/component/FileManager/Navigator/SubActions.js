@@ -8,7 +8,10 @@ import Avatar from "@material-ui/core/Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import Auth from "../../../middleware/Auth";
 import { changeViewMethod, setShareUserPopover } from "../../../redux/explorer";
-import { changeSortMethod, startBatchDownload } from "../../../redux/explorer/action";
+import {
+    changeSortMethod,
+    startBatchDownload,
+} from "../../../redux/explorer/action";
 import { FormatPageBreak } from "mdi-material-ui";
 import pathHelper from "../../../utils/page";
 import { changePageSize } from "../../../redux/viewUpdate/action";
@@ -29,29 +32,30 @@ export default function SubActions({ isSmall, inherit }) {
     const { t: vasT } = useTranslation("application", { keyPrefix: "vas" });
     const dispatch = useDispatch();
     const viewMethod = useSelector(
-        (state) => state.viewUpdate.explorerViewMethod
+        (state) => state.viewUpdate.explorerViewMethod,
     );
     const share = useSelector((state) => state.viewUpdate.shareInfo);
     const pageSize = useSelector((state) => state.viewUpdate.pagination.size);
     const OpenLoadingDialog = useCallback(
         (method) => dispatch(changeViewMethod(method)),
-        [dispatch]
+        [dispatch],
     );
     const ChangeSortMethod = useCallback(
         (method) => dispatch(changeSortMethod(method)),
-        [dispatch]
+        [dispatch],
     );
     const SetShareUserPopover = useCallback(
         (e) => dispatch(setShareUserPopover(e)),
-        [dispatch]
+        [dispatch],
     );
     const StartBatchDownloadAll = useCallback(
         () => dispatch(startBatchDownload(share)),
-        [dispatch, share]
+        [dispatch, share],
     );
-    const ChangePageSize = useCallback((e) => dispatch(changePageSize(e)), [
-        dispatch,
-    ]);
+    const ChangePageSize = useCallback(
+        (e) => dispatch(changePageSize(e)),
+        [dispatch],
+    );
     const [anchorPagination, setAnchorPagination] = useState(null);
     const showPaginationOptions = (e) => {
         setAnchorPagination(e.currentTarget);
@@ -71,8 +75,8 @@ export default function SubActions({ isSmall, inherit }) {
             viewMethod === "icon"
                 ? "list"
                 : viewMethod === "list"
-                ? "smallIcon"
-                : "icon";
+                  ? "smallIcon"
+                  : "icon";
         Auth.SetPreference("view_method", newMethod);
         OpenLoadingDialog(newMethod);
     };

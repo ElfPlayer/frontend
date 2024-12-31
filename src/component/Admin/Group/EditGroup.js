@@ -16,7 +16,7 @@ export default function EditGroupPreload() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function EditGroupPreload() {
                     "webdav_proxy",
                     "aria2",
                     "redirected_source",
-                    "advance_delete"
+                    "advance_delete",
                 ].forEach((v) => {
                     if (response.data.OptionsSerialized[v] !== undefined) {
                         response.data.OptionsSerialized[v] = response.data
@@ -56,9 +56,8 @@ export default function EditGroupPreload() {
                     "aria2_batch",
                 ].forEach((v) => {
                     if (response.data.OptionsSerialized[v] !== undefined) {
-                        response.data.OptionsSerialized[
-                            v
-                        ] = response.data.OptionsSerialized[v].toString();
+                        response.data.OptionsSerialized[v] =
+                            response.data.OptionsSerialized[v].toString();
                     }
                 });
                 response.data.PolicyList = response.data.PolicyList[0];
@@ -70,15 +69,16 @@ export default function EditGroupPreload() {
                     response.data.OptionsSerialized.aria2_options = "{}";
                 } else {
                     try {
-                        response.data.OptionsSerialized.aria2_options = JSON.stringify(
-                            response.data.OptionsSerialized.aria2_options
-                        );
+                        response.data.OptionsSerialized.aria2_options =
+                            JSON.stringify(
+                                response.data.OptionsSerialized.aria2_options,
+                            );
                     } catch (e) {
                         ToggleSnackbar(
                             "top",
                             "right",
                             t("aria2FormatError"),
-                            "warning"
+                            "warning",
                         );
                         return;
                     }

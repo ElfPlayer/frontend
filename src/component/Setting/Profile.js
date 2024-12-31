@@ -158,7 +158,7 @@ class ProfileCompoment extends Component {
                 "?page=" +
                 page +
                 "&type=" +
-                order
+                order,
         )
             .then((response) => {
                 this.setState({
@@ -172,7 +172,7 @@ class ProfileCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -180,14 +180,14 @@ class ProfileCompoment extends Component {
     loadNext = () => {
         this.loadList(
             this.state.page + 1,
-            this.state.listType === 0 ? "default" : "hot"
+            this.state.listType === 0 ? "default" : "hot",
         );
     };
 
     loadPrev = () => {
         this.loadList(
             this.state.page - 1,
-            this.state.listType === 0 ? "default" : "hot"
+            this.state.listType === 0 ? "default" : "hot",
         );
     };
 
@@ -337,7 +337,7 @@ class ProfileCompoment extends Component {
                                                     ]}
                                                 >
                                                     {t(
-                                                        "setting.downloadNumber"
+                                                        "setting.downloadNumber",
                                                     )}
                                                 </TableCell>
                                                 <TableCell
@@ -360,7 +360,7 @@ class ProfileCompoment extends Component {
                                                         }
                                                         onClick={() =>
                                                             this.props.history.push(
-                                                                "/s/" + row.key
+                                                                "/s/" + row.key,
                                                             )
                                                         }
                                                     >
@@ -371,7 +371,7 @@ class ProfileCompoment extends Component {
                                                                           .name
                                                                     : "[" +
                                                                       t(
-                                                                          "share.expired"
+                                                                          "share.expired",
                                                                       ) +
                                                                       "]"}
                                                             </Typography>
@@ -383,7 +383,7 @@ class ProfileCompoment extends Component {
                                                             }
                                                         >
                                                             {formatLocalTime(
-                                                                row.create_date
+                                                                row.create_date,
                                                             )}
                                                         </TableCell>
                                                         <TableCell
@@ -401,7 +401,7 @@ class ProfileCompoment extends Component {
                                                             {row.views}
                                                         </TableCell>
                                                     </TableRow>
-                                                )
+                                                ),
                                             )}
                                         </TableBody>
                                     </Table>
@@ -411,7 +411,7 @@ class ProfileCompoment extends Component {
                                         <div className={classes.navigator}>
                                             <Pagination
                                                 count={Math.ceil(
-                                                    this.state.total / 10
+                                                    this.state.total / 10,
                                                 )}
                                                 onChange={(e, v) =>
                                                     this.loadList(
@@ -419,7 +419,7 @@ class ProfileCompoment extends Component {
                                                         this.state.listType ===
                                                             0
                                                             ? "default"
-                                                            : "hot"
+                                                            : "hot",
                                                     )
                                                 }
                                                 color="secondary"
@@ -437,7 +437,7 @@ class ProfileCompoment extends Component {
 
 const Profile = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(ProfileCompoment))));
 
 export default Profile;

@@ -144,7 +144,7 @@ class ModalsCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.onClose();
             });
@@ -175,8 +175,8 @@ class ModalsCompoment extends Component {
             dst: this.DragSelectedPath
                 ? this.DragSelectedPath
                 : this.state.selectedPath === "//"
-                ? "/"
-                : this.state.selectedPath,
+                  ? "/"
+                  : this.state.selectedPath,
         })
             .then(() => {
                 this.onClose();
@@ -189,7 +189,7 @@ class ModalsCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.props.setModalsLoading(false);
                 this.DragSelectedPath = "";
@@ -262,7 +262,7 @@ class ModalsCompoment extends Component {
                 "top",
                 "right",
                 this.props.t("modals.duplicatedObjectName"),
-                "warning"
+                "warning",
             );
             this.props.setModalsLoading(false);
         } else {
@@ -281,7 +281,7 @@ class ModalsCompoment extends Component {
                         "top",
                         "right",
                         error.message,
-                        "error"
+                        "error",
                     );
                     this.props.setModalsLoading(false);
                 });
@@ -300,7 +300,7 @@ class ModalsCompoment extends Component {
                 "top",
                 "right",
                 this.props.t("modals.duplicatedFolderName"),
-                "warning"
+                "warning",
             );
             this.props.setModalsLoading(false);
         } else {
@@ -322,7 +322,7 @@ class ModalsCompoment extends Component {
                         "top",
                         "right",
                         error.message,
-                        "error"
+                        "error",
                     );
                 });
         }
@@ -341,7 +341,7 @@ class ModalsCompoment extends Component {
                 "top",
                 "right",
                 this.props.t("modals.duplicatedFolderName"),
-                "warning"
+                "warning",
             );
             this.props.setModalsLoading(false);
         } else {
@@ -363,7 +363,7 @@ class ModalsCompoment extends Component {
                         "top",
                         "right",
                         error.message,
-                        "error"
+                        "error",
                     );
                 });
         }
@@ -407,7 +407,7 @@ class ModalsCompoment extends Component {
                 "top",
                 "right",
                 this.props.t("modals.linkCopied"),
-                "info"
+                "info",
             );
         }
     };
@@ -719,7 +719,7 @@ ModalsCompoment.propTypes = {
 
 const Modals = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(ModalsCompoment))));
 
 export default Modals;

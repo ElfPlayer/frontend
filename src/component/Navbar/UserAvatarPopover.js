@@ -90,7 +90,7 @@ class UserAvatarPopoverCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("login.loggedOut"),
-                    "success"
+                    "success",
                 );
                 Auth.signout();
                 window.location.reload();
@@ -101,7 +101,7 @@ class UserAvatarPopoverCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "warning"
+                    "warning",
                 );
             })
             .then(() => {
@@ -113,7 +113,7 @@ class UserAvatarPopoverCompoment extends Component {
         const { classes, t } = this.props;
         const user = Auth.GetUser();
         const isAdminPage = pathHelper.isAdminPage(
-            this.props.location.pathname
+            this.props.location.pathname,
         );
 
         return (
@@ -198,7 +198,7 @@ class UserAvatarPopoverCompoment extends Component {
                                     onClick={() => {
                                         this.handleClose();
                                         this.props.history.push(
-                                            "/profile/" + user.id
+                                            "/profile/" + user.id,
                                         );
                                     }}
                                 >
@@ -250,11 +250,11 @@ UserAvatarPopoverCompoment.propTypes = {
 
 const UserAvatarPopover = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(
     withStyles(styles)(
-        withRouter(withTranslation()(UserAvatarPopoverCompoment))
-    )
+        withRouter(withTranslation()(UserAvatarPopoverCompoment)),
+    ),
 );
 
 export default UserAvatarPopover;

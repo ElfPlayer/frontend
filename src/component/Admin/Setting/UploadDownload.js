@@ -81,7 +81,7 @@ export default function UploadDownload() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -163,7 +163,7 @@ export default function UploadDownload() {
                                     }}
                                     value={options.max_parallel_transfer}
                                     onChange={handleChange(
-                                        "max_parallel_transfer"
+                                        "max_parallel_transfer",
                                     )}
                                     required
                                 />
@@ -220,7 +220,7 @@ export default function UploadDownload() {
                                                 "1"
                                             }
                                             onChange={handleCheckChange(
-                                                "use_temp_chunk_buffer"
+                                                "use_temp_chunk_buffer",
                                             )}
                                         />
                                     }
@@ -242,7 +242,7 @@ export default function UploadDownload() {
                                                 "1"
                                             }
                                             onChange={handleCheckChange(
-                                                "reset_after_upload_failed"
+                                                "reset_after_upload_failed",
                                             )}
                                         />
                                     }

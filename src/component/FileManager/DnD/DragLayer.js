@@ -17,7 +17,7 @@ function getItemStyles(
     initialOffset,
     currentOffset,
     pointerOffset,
-    viewMethod
+    viewMethod,
 ) {
     if (!initialOffset || !currentOffset) {
         return {
@@ -54,7 +54,7 @@ const CustomDragLayer = (props) => {
         isDragging: monitor.isDragging(),
     }));
     const viewMethod = useSelector(
-        (state) => state.viewUpdate.explorerViewMethod
+        (state) => state.viewUpdate.explorerViewMethod,
     );
     const image = useMemo(() => {
         switch (itemType) {
@@ -74,7 +74,7 @@ const CustomDragLayer = (props) => {
                     initialOffset,
                     currentOffset,
                     pointerOffset,
-                    viewMethod
+                    viewMethod,
                 )}
             >
                 {image}

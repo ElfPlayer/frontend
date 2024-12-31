@@ -42,17 +42,17 @@ export default function DecompressDialog(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const SetModalsLoading = useCallback(
         (status) => {
             dispatch(setModalsLoading(status));
         },
-        [dispatch]
+        [dispatch],
     );
     const SubmitDecompressTask = useCallback(
         (path) => dispatch(submitDecompressTask(path)),
-        [dispatch]
+        [dispatch],
     );
 
     const setMoveTarget = (folder) => {
@@ -76,7 +76,7 @@ export default function DecompressDialog(props) {
                     "top",
                     "right",
                     t("modals.taskCreated"),
-                    "success"
+                    "success",
                 );
                 SetModalsLoading(false);
             })

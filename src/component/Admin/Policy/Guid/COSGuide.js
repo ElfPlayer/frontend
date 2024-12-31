@@ -143,10 +143,10 @@ export default function COSGuide(props) {
                       file_type: "",
                       placeholder_with_size: "false",
                   },
-              }
+              },
     );
     const [policyID, setPolicyID] = useState(
-        props.policy ? props.policy.ID : 0
+        props.policy ? props.policy.ID : 0,
     );
     const [region, setRegion] = useState("ap-chengdu");
 
@@ -175,7 +175,7 @@ export default function COSGuide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submitPolicy = (e) => {
@@ -200,7 +200,7 @@ export default function COSGuide(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(4);
                 setPolicyID(response.data);
@@ -243,7 +243,7 @@ export default function COSGuide(props) {
                     "top",
                     "right",
                     t("callbackFunctionAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(6);
             })
@@ -695,7 +695,7 @@ export default function COSGuide(props) {
                                             }
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -757,13 +757,13 @@ export default function COSGuide(props) {
                                                     "top",
                                                     "right",
                                                     t(
-                                                        "cannotEnableForPrivateBucket"
+                                                        "cannotEnableForPrivateBucket",
                                                     ),
-                                                    "warning"
+                                                    "warning",
                                                 );
                                             }
                                             handleChange("IsOriginLinkEnable")(
-                                                e
+                                                e,
                                             );
                                         }}
                                         row
@@ -970,7 +970,7 @@ export default function COSGuide(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>
@@ -1002,7 +1002,7 @@ export default function COSGuide(props) {
                                                 .placeholder_with_size
                                         }
                                         onChange={handleOptionChange(
-                                            "placeholder_with_size"
+                                            "placeholder_with_size",
                                         )}
                                         row
                                     >
@@ -1074,11 +1074,11 @@ export default function COSGuide(props) {
                             className={classes.button}
                             onClick={() => {
                                 setActiveStep(
-                                    (prevActiveStep) => prevActiveStep + 1
+                                    (prevActiveStep) => prevActiveStep + 1,
                                 );
                                 setSkipped((prevSkipped) => {
                                     const newSkipped = new Set(
-                                        prevSkipped.values()
+                                        prevSkipped.values(),
                                     );
                                     newSkipped.add(activeStep);
                                     return newSkipped;
@@ -1167,11 +1167,11 @@ export default function COSGuide(props) {
                             className={classes.button}
                             onClick={() => {
                                 setActiveStep(
-                                    (prevActiveStep) => prevActiveStep + 1
+                                    (prevActiveStep) => prevActiveStep + 1,
                                 );
                                 setSkipped((prevSkipped) => {
                                     const newSkipped = new Set(
-                                        prevSkipped.values()
+                                        prevSkipped.values(),
                                     );
                                     newSkipped.add(activeStep);
                                     return newSkipped;

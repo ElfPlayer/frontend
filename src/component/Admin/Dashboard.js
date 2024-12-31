@@ -292,7 +292,7 @@ export default function Dashboard({ content }) {
     const dispatch = useDispatch();
     const SetSubTitle = useCallback(
         (title) => dispatch(changeSubTitle(title)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -366,26 +366,29 @@ export default function Dashboard({ content }) {
                                     }
                                     button
                                     className={clsx({
-                                        [classes.active]: location.pathname.startsWith(
-                                            "/admin/" + item.path
-                                        ),
+                                        [classes.active]:
+                                            location.pathname.startsWith(
+                                                "/admin/" + item.path,
+                                            ),
                                     })}
                                     key={item.title}
                                 >
                                     <ListItemIcon
                                         className={clsx({
-                                            [classes.activeIcon]: location.pathname.startsWith(
-                                                "/admin/" + item.path
-                                            ),
+                                            [classes.activeIcon]:
+                                                location.pathname.startsWith(
+                                                    "/admin/" + item.path,
+                                                ),
                                         })}
                                     >
                                         {item.icon}
                                     </ListItemIcon>
                                     <ListItemText
                                         className={clsx({
-                                            [classes.activeText]: location.pathname.startsWith(
-                                                "/admin/" + item.path
-                                            ),
+                                            [classes.activeText]:
+                                                location.pathname.startsWith(
+                                                    "/admin/" + item.path,
+                                                ),
                                         })}
                                         primary={t(item.title)}
                                     />
@@ -416,23 +419,27 @@ export default function Dashboard({ content }) {
                                             <ListItem
                                                 onClick={() =>
                                                     history.push(
-                                                        "/admin/" + sub.path
+                                                        "/admin/" + sub.path,
                                                     )
                                                 }
                                                 className={clsx({
                                                     [classes.sub]: open,
-                                                    [classes.active]: location.pathname.startsWith(
-                                                        "/admin/" + sub.path
-                                                    ),
+                                                    [classes.active]:
+                                                        location.pathname.startsWith(
+                                                            "/admin/" +
+                                                                sub.path,
+                                                        ),
                                                 })}
                                                 button
                                                 key={sub.title}
                                             >
                                                 <ListItemIcon
                                                     className={clsx({
-                                                        [classes.activeIcon]: location.pathname.startsWith(
-                                                            "/admin/" + sub.path
-                                                        ),
+                                                        [classes.activeIcon]:
+                                                            location.pathname.startsWith(
+                                                                "/admin/" +
+                                                                    sub.path,
+                                                            ),
                                                     })}
                                                 >
                                                     {sub.icon}

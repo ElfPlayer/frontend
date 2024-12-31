@@ -26,7 +26,7 @@ const styles = (theme) => ({
         },
         backgroundColor: fade(
             theme.palette.primary.main,
-            theme.palette.type === "dark" ? 0.3 : 0.18
+            theme.palette.type === "dark" ? 0.3 : 0.18,
         ),
     },
     notSelected: {
@@ -125,7 +125,7 @@ class SmallIconCompoment extends Component {
                         [classes.selected]: isSelected,
                         [classes.notSelected]: !isSelected,
                     },
-                    classes.button
+                    classes.button,
                 )}
             >
                 <div
@@ -177,7 +177,7 @@ SmallIconCompoment.propTypes = {
 
 const SmallIcon = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(SmallIconCompoment));
 
 export default SmallIcon;

@@ -219,7 +219,7 @@ export default function AddGroup({ open, onClose, onSubmit }) {
                                         <Switch
                                             checked={group.highlight}
                                             onChange={handleCheckChange(
-                                                "highlight"
+                                                "highlight",
                                             )}
                                         />
                                     }

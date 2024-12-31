@@ -111,7 +111,7 @@ class DownloadComponent extends Component {
                                 return prev.interval < current.interval
                                     ? prev
                                     : current;
-                            }).interval
+                            }).interval,
                     );
                 }
 
@@ -131,7 +131,7 @@ class DownloadComponent extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -156,7 +156,7 @@ class DownloadComponent extends Component {
                     "top",
                     "right",
                     this.props.t("download.failedToLoad"),
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: false,
@@ -223,7 +223,7 @@ class DownloadComponent extends Component {
 
 const Download = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withTranslation()(DownloadComponent)));
 
 export default Download;

@@ -22,27 +22,27 @@ export default function SharePreload() {
 
     const SetSubTitle = useCallback(
         (title) => dispatch(changeSubTitle(title)),
-        [dispatch]
+        [dispatch],
     );
 
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
         if (share) {
             if (share.locked) {
                 SetSubTitle(
-                    t("privateShareTitle", { nick: share.creator.nick })
+                    t("privateShareTitle", { nick: share.creator.nick }),
                 );
                 if (password !== "") {
                     ToggleSnackbar(
                         "top",
                         "right",
                         t("incorrectPassword"),
-                        "warning"
+                        "warning",
                     );
                 }
             } else {

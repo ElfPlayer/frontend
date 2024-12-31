@@ -118,7 +118,7 @@ export default function UpyunGuide(props) {
                       file_type: "",
                       token: "",
                   },
-              }
+              },
     );
 
     const handleChange = (name) => (event) => {
@@ -146,7 +146,7 @@ export default function UpyunGuide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submitPolicy = (e) => {
@@ -167,7 +167,7 @@ export default function UpyunGuide(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(5);
             })
@@ -390,7 +390,7 @@ export default function UpyunGuide(props) {
                                                 policy.OptionsSerialized.token
                                             }
                                             onChange={handleOptionChange(
-                                                "token"
+                                                "token",
                                             )}
                                             required={
                                                 policy.IsPrivate === "true"
@@ -515,7 +515,7 @@ export default function UpyunGuide(props) {
                                             }
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -577,13 +577,13 @@ export default function UpyunGuide(props) {
                                                     "top",
                                                     "right",
                                                     t(
-                                                        "cannotEnableForTokenProtectedBucket"
+                                                        "cannotEnableForTokenProtectedBucket",
                                                     ),
-                                                    "warning"
+                                                    "warning",
                                                 );
                                             }
                                             handleChange("IsOriginLinkEnable")(
-                                                e
+                                                e,
                                             );
                                         }}
                                         row
@@ -796,7 +796,7 @@ export default function UpyunGuide(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>

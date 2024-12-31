@@ -95,7 +95,7 @@ export default function SearchResult() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const [page, setPage] = useState(1);
@@ -113,7 +113,7 @@ export default function SearchResult() {
                 "&order=" +
                 order[1] +
                 "&keywords=" +
-                encodeURIComponent(keywords)
+                encodeURIComponent(keywords),
         )
             .then((response) => {
                 setTotal(response.data.total);
@@ -263,7 +263,7 @@ export default function SearchResult() {
                                                         "timeAgoLocaleCode",
                                                         {
                                                             ns: "common",
-                                                        }
+                                                        },
                                                     )}
                                                 />,
                                             ]}

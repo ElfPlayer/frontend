@@ -40,7 +40,7 @@ export default function ObjectIcon(props) {
     const shareInfo = useSelector((state) => state.viewUpdate.shareInfo);
     const selected = useSelector((state) => state.explorer.selected);
     const viewMethod = useSelector(
-        (state) => state.viewUpdate.explorerViewMethod
+        (state) => state.viewUpdate.explorerViewMethod,
     );
     const navigatorPath = useSelector((state) => state.navigator.path);
     const location = useLocation();
@@ -48,35 +48,37 @@ export default function ObjectIcon(props) {
     const dispatch = useDispatch();
     const ContextMenu = useCallback(
         (type, open) => dispatch(changeContextMenu(type, open)),
-        [dispatch]
+        [dispatch],
     );
     const SetSelectedTarget = useCallback(
         (targets) => dispatch(setSelectedTarget(targets)),
-        [dispatch]
+        [dispatch],
     );
 
-    const NavitateTo = useCallback((targets) => dispatch(navigateTo(targets)), [
-        dispatch,
-    ]);
+    const NavitateTo = useCallback(
+        (targets) => dispatch(navigateTo(targets)),
+        [dispatch],
+    );
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const DragAndDrop = useCallback(
         (source, target) => dispatch(dragAndDrop(source, target)),
-        [dispatch]
+        [dispatch],
     );
     const OpenLoadingDialog = useCallback(
         (text) => dispatch(openLoadingDialog(text)),
-        [dispatch]
+        [dispatch],
     );
-    const OpenPreview = useCallback((share) => dispatch(openPreview(share)), [
-        dispatch,
-    ]);
+    const OpenPreview = useCallback(
+        (share) => dispatch(openPreview(share)),
+        [dispatch],
+    );
     const StartDownload = useCallback(
         (share, file) => dispatch(StartDownload(share, file)),
-        [dispatch]
+        [dispatch],
     );
 
     const classes = useStyles();
@@ -101,7 +103,9 @@ export default function ObjectIcon(props) {
     };
     const enterFolder = () => {
         NavitateTo(
-            path === "/" ? path + props.file.name : path + "/" + props.file.name
+            path === "/"
+                ? path + props.file.name
+                : path + "/" + props.file.name,
         );
     };
     const handleClick = (e) => {
@@ -143,10 +147,8 @@ export default function ObjectIcon(props) {
         return false;
     };
 
-    const {
-        addEventListenerForWindow,
-        removeEventListenerForWindow,
-    } = useDragScrolling();
+    const { addEventListenerForWindow, removeEventListenerForWindow } =
+        useDragScrolling();
 
     const [{ isDragging }, drag, preview] = useDrag({
         item: {

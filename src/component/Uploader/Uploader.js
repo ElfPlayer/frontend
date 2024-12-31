@@ -36,60 +36,66 @@ export default function Uploader() {
     const isLogin = useSelector((state) => state.viewUpdate.isLogin);
     const path = useSelector((state) => state.navigator.path);
     const fileSelectCounter = useSelector(
-        (state) => state.viewUpdate.openFileSelector
+        (state) => state.viewUpdate.openFileSelector,
     );
     const folderSelectCounter = useSelector(
-        (state) => state.viewUpdate.openFolderSelector
+        (state) => state.viewUpdate.openFolderSelector,
     );
     const location = useLocation();
     const dispatch = useDispatch();
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
-    const RefreshFileList = useCallback(() => dispatch(refreshFileList()), [
-        dispatch,
-    ]);
-    const RefreshStorage = useCallback(() => dispatch(refreshStorage()), [
-        dispatch,
-    ]);
+    const RefreshFileList = useCallback(
+        () => dispatch(refreshFileList()),
+        [dispatch],
+    );
+    const RefreshStorage = useCallback(
+        () => dispatch(refreshStorage()),
+        [dispatch],
+    );
 
     const enableUploader = useMemo(
         () => pathHelper.isHomePage(location.pathname) && isLogin && !search,
-        [location.pathname, isLogin, search]
+        [location.pathname, isLogin, search],
     );
 
-    const taskAdded = (original = null) => (tasks) => {
-        if (original !== null) {
-            if (tasks.length !== 1 || tasks[0].key() !== original.key()) {
-                ToggleSnackbar(
-                    "top",
-                    "right",
-                    t("fileNotMatchError"),
-                    "warning"
-                );
-                return;
-            }
-        }
-
-        tasks.forEach((t) => t.start());
-
-        setTaskListOpen(true);
-        setUploaders((uploaders) => {
+    const taskAdded =
+        (original = null) =>
+        (tasks) => {
             if (original !== null) {
-                uploaders = uploaders.filter((u) => u.key() !== original.key());
+                if (tasks.length !== 1 || tasks[0].key() !== original.key()) {
+                    ToggleSnackbar(
+                        "top",
+                        "right",
+                        t("fileNotMatchError"),
+                        "warning",
+                    );
+                    return;
+                }
             }
 
-            return [...uploaders, ...tasks];
-        });
-    };
+            tasks.forEach((t) => t.start());
+
+            setTaskListOpen(true);
+            setUploaders((uploaders) => {
+                if (original !== null) {
+                    uploaders = uploaders.filter(
+                        (u) => u.key() !== original.key(),
+                    );
+                }
+
+                return [...uploaders, ...tasks];
+            });
+        };
 
     const uploadManager = useMemo(() => {
         return new UploadManager({
             logLevel: "INFO",
             concurrentLimit: parseInt(
-                Auth.GetPreferenceWithDefault("concurrent_limit", "5")
+                Auth.GetPreferenceWithDefault("concurrent_limit", "5"),
             ),
             dropZone: document.querySelector("body"),
             onToast: (type, msg) => {
@@ -191,7 +197,7 @@ export default function Uploader() {
                         "top",
                         "right",
                         t("unknownError", { msg: e.message }),
-                        "error"
+                        "error",
                     );
                 }
             });

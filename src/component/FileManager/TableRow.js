@@ -172,7 +172,7 @@ class TableRowCompoment extends Component {
                                     <CheckCircleRoundedIcon
                                         className={classNames(
                                             classes.checkIcon,
-                                            classes.icon
+                                            classes.icon,
                                         )}
                                     />
                                 </Grow>
@@ -223,7 +223,7 @@ TableRowCompoment.propTypes = {
 
 const TableItem = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(TableRowCompoment)));
 
 export default TableItem;

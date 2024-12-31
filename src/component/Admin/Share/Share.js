@@ -91,7 +91,7 @@ export default function Share() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const loadList = () => {
         API.post("/admin/share/list", {
@@ -169,7 +169,7 @@ export default function Share() {
         } else if (selectedIndex > 0) {
             newSelected = newSelected.concat(
                 selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1)
+                selected.slice(selectedIndex + 1),
             );
         }
 
@@ -453,7 +453,7 @@ export default function Share() {
                                             {users[row.UserID]
                                                 ? users[row.UserID].Nick
                                                 : tDashboard(
-                                                      "file.unknownUploader"
+                                                      "file.unknownUploader",
                                                   )}
                                         </Link>
                                     </TableCell>

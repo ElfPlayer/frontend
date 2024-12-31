@@ -61,7 +61,7 @@ export default function SiteInformation() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -283,7 +283,7 @@ export default function SiteInformation() {
                                 <Input
                                     value={options.pwa_background_color}
                                     onChange={handleChange(
-                                        "pwa_background_color"
+                                        "pwa_background_color",
                                     )}
                                 />
                                 <FormHelperText id="component-helper-text">

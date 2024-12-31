@@ -96,7 +96,7 @@ class LockedFileCompoment extends Component {
                             nick: this.props.share.creator.nick,
                         })}
                         subheader={formatLocalTime(
-                            this.props.share.create_date
+                            this.props.share.create_date,
                         )}
                     />
                     <Divider />
@@ -139,7 +139,7 @@ class LockedFileCompoment extends Component {
 
 const LockedFile = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(LockedFileCompoment))));
 
 export default LockedFile;

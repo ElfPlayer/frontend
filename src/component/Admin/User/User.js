@@ -93,7 +93,7 @@ export default function Group() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const loadList = () => {
@@ -159,7 +159,7 @@ export default function Group() {
                             return newUser;
                         }
                         return v;
-                    })
+                    }),
                 );
             })
             .catch((error) => {
@@ -192,7 +192,7 @@ export default function Group() {
         } else if (selectedIndex > 0) {
             newSelected = newSelected.concat(
                 selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1)
+                selected.slice(selectedIndex + 1),
             );
         }
 
@@ -487,7 +487,7 @@ export default function Group() {
                                                 onClick={() =>
                                                     history.push(
                                                         "/admin/user/edit/" +
-                                                            row.ID
+                                                            row.ID,
                                                     )
                                                 }
                                                 size={"small"}

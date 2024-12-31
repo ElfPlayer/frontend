@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) =>
             color: "#fff",
             flexDirection: "column",
         },
-    })
+    }),
 );
 
 export function DropFileBackground({ open }) {

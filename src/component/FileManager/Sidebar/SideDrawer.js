@@ -94,13 +94,14 @@ export default function SideDrawer() {
     const dispatch = useDispatch();
     const sideBarOpen = useSelector((state) => state.explorer.sideBarOpen);
     const selected = useSelector((state) => state.explorer.selected);
-    const SetSideBar = useCallback((open) => dispatch(setSideBar(open)), [
-        dispatch,
-    ]);
+    const SetSideBar = useCallback(
+        (open) => dispatch(setSideBar(open)),
+        [dispatch],
+    );
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const NavigateTo = useCallback((k) => dispatch(navigateTo(k)), [dispatch]);
     const search = useSelector((state) => state.explorer.search);
@@ -113,7 +114,7 @@ export default function SideDrawer() {
                 "?trace_root=" +
                 (search ? "true" : "false") +
                 "&is_folder=" +
-                (object.type === "dir").toString()
+                (object.type === "dir").toString(),
         )
             .then((response) => {
                 setDetails(response.data);

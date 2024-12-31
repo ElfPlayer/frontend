@@ -7,7 +7,8 @@ import {
     DialogContent,
     DialogContentText,
     DialogTitle,
-    makeStyles, TextField
+    makeStyles,
+    TextField,
 } from "@material-ui/core";
 import PathSelector from "../FileManager/PathSelector";
 import { useDispatch } from "react-redux";
@@ -49,36 +50,36 @@ const useStyles = makeStyles((theme) => ({
     },
     forumInput: {
         flexGrow: 1,
-    }
+    },
 }));
 
 export default function RemoteDownload(props) {
     const { t } = useTranslation();
-    const [selectPathOpen,setSelectPathOpen] = useState(false);
+    const [selectPathOpen, setSelectPathOpen] = useState(false);
     const [selectedPath, setSelectedPath] = useState("");
     const [selectedPathName, setSelectedPathName] = useState("");
     const [downloadTo, setDownloadTo] = useState("");
     const [url, setUrl] = useState("");
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-    useEffect(()=>{
-        if (props.open){
-            setDownloadTo(props.presentPath)
+    useEffect(() => {
+        if (props.open) {
+            setDownloadTo(props.presentPath);
         }
-    },[props.open])
+    }, [props.open]);
 
     const dispatch = useDispatch();
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const SetModalsLoading = useCallback(
         (status) => {
             dispatch(setModalsLoading(status));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const setDownloadToPath = (folder) => {
@@ -99,28 +100,20 @@ export default function RemoteDownload(props) {
         e.preventDefault();
         props.setModalsLoading(true);
         API.post("/aria2/torrent/" + props.torrent.id, {
-            dst:
-                downloadTo === "//"
-                    ? "/"
-                    : downloadTo,
+            dst: downloadTo === "//" ? "/" : downloadTo,
         })
             .then(() => {
                 ToggleSnackbar(
                     "top",
                     "right",
                     t("modals.taskCreated"),
-                    "success"
+                    "success",
                 );
                 props.onClose();
                 props.setModalsLoading(false);
             })
             .catch((error) => {
-                ToggleSnackbar(
-                    "top",
-                    "right",
-                    error.message,
-                    "error"
-                );
+                ToggleSnackbar("top", "right", error.message, "error");
                 props.setModalsLoading(false);
             });
     };
@@ -130,10 +123,7 @@ export default function RemoteDownload(props) {
         props.setModalsLoading(true);
         API.post("/aria2/url", {
             url: url.split("\n"),
-            dst:
-                downloadTo === "//"
-                    ? "/"
-                    : downloadTo,
+            dst: downloadTo === "//" ? "/" : downloadTo,
         })
             .then((response) => {
                 const failed = response.data
@@ -147,14 +137,14 @@ export default function RemoteDownload(props) {
                             failed: failed.length,
                             details: failed.join(","),
                         }),
-                        "warning"
+                        "warning",
                     );
                 } else {
                     ToggleSnackbar(
                         "top",
                         "right",
                         t("modals.taskCreated"),
-                        "success"
+                        "success",
                     );
                 }
 
@@ -162,12 +152,7 @@ export default function RemoteDownload(props) {
                 props.setModalsLoading(false);
             })
             .catch((error) => {
-                ToggleSnackbar(
-                    "top",
-                    "right",
-                    error.message,
-                    "error"
-                );
+                ToggleSnackbar("top", "right", error.message, "error");
                 props.setModalsLoading(false);
             });
     };
@@ -176,96 +161,111 @@ export default function RemoteDownload(props) {
 
     return (
         <>
-        <Dialog
-            open={props.open}
-            onClose={props.onClose}
-            aria-labelledby="form-dialog-title"
-            fullWidth
-        >
-            <DialogTitle id="form-dialog-title">
-                {t("modals.newRemoteDownloadTitle")}
-            </DialogTitle>
-            <DialogContent>
-                <DialogContentText>
-                    <div className={classes.formGroup}>
-                        <div className={classes.forumInput}>
-                            <TextField
-                                variant={"outlined"}
-                                label={t("modals.remoteDownloadURL")}
-                                autoFocus
-                                fullWidth
-                                disabled={props.torrent}
-                                multiline
-                                value={props.torrent?props.torrent.name:url}
-                                onChange={(e) => setUrl(e.target.value)}
-                                placeholder={t(
-                                    "modals.remoteDownloadURLDescription"
-                                )}
-                                InputProps={{
-                                    startAdornment: !isMobile&&(
-                                        <InputAdornment position="start">
-                                            <LinkIcon />
-                                        </InputAdornment>
-                                    ),
-
-                                }}
-                            />
+            <Dialog
+                open={props.open}
+                onClose={props.onClose}
+                aria-labelledby="form-dialog-title"
+                fullWidth
+            >
+                <DialogTitle id="form-dialog-title">
+                    {t("modals.newRemoteDownloadTitle")}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <div className={classes.formGroup}>
+                            <div className={classes.forumInput}>
+                                <TextField
+                                    variant={"outlined"}
+                                    label={t("modals.remoteDownloadURL")}
+                                    autoFocus
+                                    fullWidth
+                                    disabled={props.torrent}
+                                    multiline
+                                    value={
+                                        props.torrent ? props.torrent.name : url
+                                    }
+                                    onChange={(e) => setUrl(e.target.value)}
+                                    placeholder={t(
+                                        "modals.remoteDownloadURLDescription",
+                                    )}
+                                    InputProps={{
+                                        startAdornment: !isMobile && (
+                                            <InputAdornment position="start">
+                                                <LinkIcon />
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className={classes.formGroup}>
-                        <div className={classes.forumInput}>
-                            <TextField
-                                variant={"outlined"}
-                                fullWidth
-                                value={downloadTo}
-                                onChange={(e) => setDownloadTo(e.target.value)}
-                                className={classes.input}
-                                label={t("modals.remoteDownloadDst")}
-                                InputProps={{
-                                    startAdornment: !isMobile&&(
-                                        <InputAdornment position="start">
-                                            <FolderOpenOutlined />
-                                        </InputAdornment>
-                                    ),
-                                    endAdornment:(
-                                        <InputAdornment position="end">
-                                            <Button
-                                                className={classes.button}
-                                                color="primary"
-                                                onClick={() => setSelectPathOpen(true)}
-                                            >
-                                                {t("navbar.addTagDialog.selectFolder")}
-                                            </Button>
-                                        </InputAdornment>
-                                    )
-                                }}
-                            />
-                            <br />
+                        <div className={classes.formGroup}>
+                            <div className={classes.forumInput}>
+                                <TextField
+                                    variant={"outlined"}
+                                    fullWidth
+                                    value={downloadTo}
+                                    onChange={(e) =>
+                                        setDownloadTo(e.target.value)
+                                    }
+                                    className={classes.input}
+                                    label={t("modals.remoteDownloadDst")}
+                                    InputProps={{
+                                        startAdornment: !isMobile && (
+                                            <InputAdornment position="start">
+                                                <FolderOpenOutlined />
+                                            </InputAdornment>
+                                        ),
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <Button
+                                                    className={classes.button}
+                                                    color="primary"
+                                                    onClick={() =>
+                                                        setSelectPathOpen(true)
+                                                    }
+                                                >
+                                                    {t(
+                                                        "navbar.addTagDialog.selectFolder",
+                                                    )}
+                                                </Button>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                <br />
+                            </div>
                         </div>
-                    </div>
-                </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={props.onClose}>
-                    {t("cancel", { ns: "common" })}
-                </Button>
-                <div className={classes.wrapper}>
-                    <Button
-                        onClick={props.torrent?submitTorrentDownload:submitDownload}
-                        color="primary"
-                        disabled={(url === "" && props.torrent===null) || downloadTo==="" || props.modalsLoading}
-                    >
-                        {t("modals.createTask")}
-                        {props.modalsLoading && (
-                            <CircularProgress
-                                size={24}
-                                className={classes.buttonProgress}
-                            />
-                        )}
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={props.onClose}>
+                        {t("cancel", { ns: "common" })}
                     </Button>
-                </div>
-            </DialogActions>
-        </Dialog>
+                    <div className={classes.wrapper}>
+                        <Button
+                            onClick={
+                                props.torrent
+                                    ? submitTorrentDownload
+                                    : submitDownload
+                            }
+                            color="primary"
+                            disabled={
+                                (url === "" && props.torrent === null) ||
+                                downloadTo === "" ||
+                                props.modalsLoading
+                            }
+                        >
+                            {t("modals.createTask")}
+                            {props.modalsLoading && (
+                                <CircularProgress
+                                    size={24}
+                                    className={classes.buttonProgress}
+                                />
+                            )}
+                        </Button>
+                    </div>
+                </DialogActions>
+            </Dialog>
 
             <Dialog
                 open={selectPathOpen}
@@ -307,6 +307,6 @@ export default function RemoteDownload(props) {
                     </Button>
                 </DialogActions>
             </Dialog>
-            </>
+        </>
     );
 }

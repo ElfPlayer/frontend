@@ -34,7 +34,7 @@ export default function SizeInput({
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const [unit, setUnit] = useState(1);

@@ -25,7 +25,7 @@ export default function RemoteDownloadButton() {
 
     const OpenRemoteDownloadDialog = useCallback(
         () => dispatch(openRemoteDownloadDialog()),
-        [dispatch]
+        [dispatch],
     );
 
     return (

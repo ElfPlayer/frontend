@@ -24,7 +24,6 @@ import MagicVar from "../../Dialogs/MagicVar";
 import { Trans, useTranslation } from "react-i18next";
 import { transformPolicyRequest } from "../utils";
 
-
 const useStyles = makeStyles((theme) => ({
     stepContent: {
         padding: "16px 32px 16px 32px",
@@ -123,7 +122,7 @@ export default function RemoteGuide(props) {
                       chunk_size: 25 << 20,
                       placeholder_with_size: "false",
                   },
-              }
+              },
     );
 
     const handleChange = (name) => (event) => {
@@ -151,7 +150,7 @@ export default function RemoteGuide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submitPolicy = (e) => {
@@ -172,7 +171,7 @@ export default function RemoteGuide(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(5);
             })
@@ -489,7 +488,7 @@ export default function RemoteGuide(props) {
                                             }
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -551,13 +550,13 @@ export default function RemoteGuide(props) {
                                                     "top",
                                                     "right",
                                                     t(
-                                                        "cannotEnableForPrivateBucket"
+                                                        "cannotEnableForPrivateBucket",
                                                     ),
-                                                    "warning"
+                                                    "warning",
                                                 );
                                             }
                                             handleChange("IsOriginLinkEnable")(
-                                                e
+                                                e,
                                             );
                                         }}
                                         row
@@ -770,7 +769,7 @@ export default function RemoteGuide(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>
@@ -870,7 +869,7 @@ export default function RemoteGuide(props) {
                                                     .mimetype
                                             }
                                             onChange={handleOptionChange(
-                                                "mimetype"
+                                                "mimetype",
                                             )}
                                         />
                                     </FormControl>
@@ -931,7 +930,7 @@ export default function RemoteGuide(props) {
                                                 .placeholder_with_size
                                         }
                                         onChange={handleOptionChange(
-                                            "placeholder_with_size"
+                                            "placeholder_with_size",
                                         )}
                                         row
                                     >

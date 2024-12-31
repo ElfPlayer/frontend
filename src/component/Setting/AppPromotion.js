@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     highlight: {
         background: `linear-gradient(180deg, transparent 82%, ${fade(
             theme.palette.secondary.main,
-            0.3
+            0.3,
         )} 0%)`,
     },
     bold: {

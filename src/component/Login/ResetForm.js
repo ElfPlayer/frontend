@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
-            3
+            3,
         )}px`,
     },
     avatar: {
@@ -72,7 +72,7 @@ function ResetForm() {
     });
     const [loading, setLoading] = useState(false);
     const registerEnabled = useSelector(
-        (state) => state.siteConfig.registerEnabled
+        (state) => state.siteConfig.registerEnabled,
     );
     const handleInputChange = (name) => (e) => {
         setInput({
@@ -84,7 +84,7 @@ function ResetForm() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const history = useHistory();
     const theme = useTheme();
@@ -97,7 +97,7 @@ function ResetForm() {
                 "top",
                 "right",
                 t("login.passwordNotMatch"),
-                "warning"
+                "warning",
             );
             return;
         }
@@ -114,7 +114,7 @@ function ResetForm() {
                     "top",
                     "right",
                     t("login.passwordReset"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {

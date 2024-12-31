@@ -146,7 +146,7 @@ class SharedFileCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("share.pleaseLogin"),
-                    "warning"
+                    "warning",
                 );
                 return;
             }
@@ -163,7 +163,7 @@ class SharedFileCompoment extends Component {
                 this.props.history.push(
                     this.props.share.key +
                         "/doc?name=" +
-                        encodeURIComponent(this.props.share.source.name)
+                        encodeURIComponent(this.props.share.source.name),
                 );
                 return;
             case "audio":
@@ -177,35 +177,35 @@ class SharedFileCompoment extends Component {
                 this.props.history.push(
                     this.props.share.key +
                         "/video?name=" +
-                        encodeURIComponent(this.props.share.source.name)
+                        encodeURIComponent(this.props.share.source.name),
                 );
                 return;
             case "edit":
                 this.props.history.push(
                     this.props.share.key +
                         "/text?name=" +
-                        encodeURIComponent(this.props.share.source.name)
+                        encodeURIComponent(this.props.share.source.name),
                 );
                 return;
             case "pdf":
                 this.props.history.push(
                     this.props.share.key +
                         "/pdf?name=" +
-                        encodeURIComponent(this.props.share.source.name)
+                        encodeURIComponent(this.props.share.source.name),
                 );
                 return;
             case "code":
                 this.props.history.push(
                     this.props.share.key +
                         "/code?name=" +
-                        encodeURIComponent(this.props.share.source.name)
+                        encodeURIComponent(this.props.share.source.name),
                 );
                 return;
             case "epub":
                 this.props.history.push(
                     this.props.share.key +
                         "/epub?name=" +
-                        encodeURIComponent(this.props.share.source.name)
+                        encodeURIComponent(this.props.share.source.name),
                 );
                 return;
             default:
@@ -213,7 +213,7 @@ class SharedFileCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("share.cannotShare"),
-                    "warning"
+                    "warning",
                 );
                 return;
         }
@@ -289,7 +289,7 @@ class SharedFileCompoment extends Component {
 
 const SharedFile = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(SharedFileCompoment))));
 
 export default SharedFile;

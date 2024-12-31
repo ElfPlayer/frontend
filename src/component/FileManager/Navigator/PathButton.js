@@ -60,7 +60,7 @@ export default function PathButton(props) {
                     {
                         [classes.active]: isActive,
                     },
-                    classes.button
+                    classes.button,
                 )}
                 component="span"
                 title={props.title}

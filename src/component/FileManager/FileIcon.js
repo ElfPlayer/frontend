@@ -30,7 +30,7 @@ const styles = (theme) => ({
         },
         backgroundColor: fade(
             theme.palette.primary.main,
-            theme.palette.type === "dark" ? 0.3 : 0.18
+            theme.palette.type === "dark" ? 0.3 : 0.18,
         ),
     },
 
@@ -170,7 +170,7 @@ class FileIconCompoment extends Component {
                 return value === this.props.file;
             }) !== -1;
         const isSharePage = pathHelper.isSharePage(
-            this.props.location.pathname
+            this.props.location.pathname,
         );
         const isMobile = statusHelper.isMobile();
 
@@ -183,7 +183,7 @@ class FileIconCompoment extends Component {
                             [classes.selected]: isSelected,
                             [classes.notSelected]: !isSelected,
                         },
-                        classes.button
+                        classes.button,
                     )}
                 >
                     {this.props.file.thumb && !this.state.showPicIcon && (
@@ -195,7 +195,7 @@ class FileIconCompoment extends Component {
                                         [classes.picPreview]:
                                             !this.state.loading,
                                     },
-                                    classes.noDrag
+                                    classes.noDrag,
                                 )}
                                 src={
                                     baseURL +
@@ -206,7 +206,7 @@ class FileIconCompoment extends Component {
                                           this.props.file.id +
                                           "?path=" +
                                           encodeURIComponent(
-                                              this.props.file.path
+                                              this.props.file.path,
                                           )
                                         : "/file/thumb/" + this.props.file.id)
                                 }
@@ -227,7 +227,7 @@ class FileIconCompoment extends Component {
                                     {
                                         [classes.hide]: !this.state.loading,
                                     },
-                                    classes.loadingAnimation
+                                    classes.loadingAnimation,
                                 )}
                             >
                                 <rect x="0" y="0" width="100%" height="150" />
@@ -296,7 +296,7 @@ FileIconCompoment.propTypes = {
 
 const FileIcon = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(FileIconCompoment)));
 
 export default FileIcon;

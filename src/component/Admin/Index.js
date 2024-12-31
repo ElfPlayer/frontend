@@ -117,7 +117,7 @@ export default function Index() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const ResetSiteURL = () => {
@@ -188,7 +188,7 @@ export default function Index() {
                     "top",
                     "right",
                     t("summary.newsletterError"),
-                    "warning"
+                    "warning",
                 );
             });
     }, []);
@@ -362,7 +362,7 @@ export default function Index() {
                                 button
                                 onClick={() =>
                                     window.open(
-                                        "https://github.com/cloudreve/cloudreve"
+                                        "https://github.com/cloudreve/cloudreve",
                                     )
                                 }
                             >
@@ -450,7 +450,7 @@ export default function Index() {
                                         onClick={() =>
                                             window.open(
                                                 "https://forum.cloudreve.org/d/" +
-                                                    v.id
+                                                    v.id,
                                             )
                                         }
                                     >
@@ -505,9 +505,8 @@ export default function Index() {
                                                                 locale={t(
                                                                     "timeAgoLocaleCode",
                                                                     {
-                                                                        ns:
-                                                                            "common",
-                                                                    }
+                                                                        ns: "common",
+                                                                    },
                                                                 )}
                                                             />,
                                                         ]}

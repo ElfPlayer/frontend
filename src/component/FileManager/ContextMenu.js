@@ -219,7 +219,7 @@ class ContextMenuCompoment extends Component {
 
     enterFolder = () => {
         this.props.navigateTo(
-            pathJoin([this.props.path, this.props.selected[0].name])
+            pathJoin([this.props.path, this.props.selected[0].name]),
         );
     };
 
@@ -239,7 +239,7 @@ class ContextMenuCompoment extends Component {
                             <Typography variant="inherit">
                                 {item.text}
                             </Typography>
-                        </MenuItem>
+                        </MenuItem>,
                     );
                     key++;
                     visibleCount++;
@@ -247,7 +247,10 @@ class ContextMenuCompoment extends Component {
             });
             if (visibleCount > 0 && position != "bottom") {
                 res.push(
-                    <Divider key={key} className={this.props.classes.divider} />
+                    <Divider
+                        key={key}
+                        className={this.props.classes.divider}
+                    />,
                 );
                 key++;
             }
@@ -268,7 +271,7 @@ class ContextMenuCompoment extends Component {
                         this.props.refreshFileList();
                         this.props.changeContextMenu(
                             this.props.menuType,
-                            false
+                            false,
                         );
                     },
                     icon: <RefreshIcon />,
@@ -338,7 +341,7 @@ class ContextMenuCompoment extends Component {
                                     this.props.refreshFileList();
                                     this.props.changeContextMenu(
                                         this.props.menuType,
-                                        false
+                                        false,
                                     );
                                 }}
                             >
@@ -419,21 +422,27 @@ class ContextMenuCompoment extends Component {
                     )}
                     {this.props.menuType !== "empty" && (
                         <div>
-                            {!this.props.isMultiple && this.props.withFolder && (
-                                <div>
-                                    <MenuItem dense onClick={this.enterFolder}>
-                                        <StyledListItemIcon>
-                                            <OpenFolderIcon />
-                                        </StyledListItemIcon>
-                                        <Typography variant="inherit">
-                                            {t("fileManager.enter")}
-                                        </Typography>
-                                    </MenuItem>
-                                    {isHomePage && (
-                                        <Divider className={classes.divider} />
-                                    )}
-                                </div>
-                            )}
+                            {!this.props.isMultiple &&
+                                this.props.withFolder && (
+                                    <div>
+                                        <MenuItem
+                                            dense
+                                            onClick={this.enterFolder}
+                                        >
+                                            <StyledListItemIcon>
+                                                <OpenFolderIcon />
+                                            </StyledListItemIcon>
+                                            <Typography variant="inherit">
+                                                {t("fileManager.enter")}
+                                            </Typography>
+                                        </MenuItem>
+                                        {isHomePage && (
+                                            <Divider
+                                                className={classes.divider}
+                                            />
+                                        )}
+                                    </div>
+                                )}
                             {!this.props.isMultiple &&
                                 this.props.withFile &&
                                 (!this.props.share ||
@@ -545,10 +554,10 @@ class ContextMenuCompoment extends Component {
                                             (this.props.withFolder &&
                                                 !this.props.withFile)
                                                 ? t(
-                                                      "fileManager.getSourceLinkInBatch"
+                                                      "fileManager.getSourceLinkInBatch",
                                                   )
                                                 : t(
-                                                      "fileManager.getSourceLink"
+                                                      "fileManager.getSourceLink",
                                                   )}
                                         </Typography>
                                     </MenuItem>
@@ -570,7 +579,7 @@ class ContextMenuCompoment extends Component {
                                         </StyledListItemIcon>
                                         <Typography variant="inherit">
                                             {t(
-                                                "fileManager.createRemoteDownloadForTorrent"
+                                                "fileManager.createRemoteDownloadForTorrent",
                                             )}
                                         </Typography>
                                     </MenuItem>
@@ -727,7 +736,7 @@ ContextMenuCompoment.propTypes = {
 
 const ContextMenu = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(ContextMenuCompoment))));
 
 export default ContextMenu;

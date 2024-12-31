@@ -75,7 +75,7 @@ export default function Access() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -148,7 +148,7 @@ export default function Access() {
                                                 options.register_enabled === "1"
                                             }
                                             onChange={handleChange(
-                                                "register_enabled"
+                                                "register_enabled",
                                             )}
                                         />
                                     }
@@ -169,7 +169,7 @@ export default function Access() {
                                                 options.email_active === "1"
                                             }
                                             onChange={handleChange(
-                                                "email_active"
+                                                "email_active",
                                             )}
                                         />
                                     }
@@ -190,7 +190,7 @@ export default function Access() {
                                                 options.reg_captcha === "1"
                                             }
                                             onChange={handleChange(
-                                                "reg_captcha"
+                                                "reg_captcha",
                                             )}
                                         />
                                     }
@@ -211,7 +211,7 @@ export default function Access() {
                                                 options.login_captcha === "1"
                                             }
                                             onChange={handleChange(
-                                                "login_captcha"
+                                                "login_captcha",
                                             )}
                                         />
                                     }
@@ -232,7 +232,7 @@ export default function Access() {
                                                 options.forget_captcha === "1"
                                             }
                                             onChange={handleChange(
-                                                "forget_captcha"
+                                                "forget_captcha",
                                             )}
                                         />
                                     }
@@ -255,14 +255,14 @@ export default function Access() {
                                             onChange={(e) => {
                                                 if (
                                                     !siteURL.startsWith(
-                                                        "https://"
+                                                        "https://",
                                                     )
                                                 ) {
                                                     setHttpAlert(true);
                                                     return;
                                                 }
                                                 handleChange("authn_enabled")(
-                                                    e
+                                                    e,
                                                 );
                                             }}
                                         />
@@ -283,7 +283,7 @@ export default function Access() {
                                 <Select
                                     value={options.default_group}
                                     onChange={handleInputChange(
-                                        "default_group"
+                                        "default_group",
                                     )}
                                     required
                                 >

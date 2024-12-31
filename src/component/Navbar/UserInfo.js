@@ -146,7 +146,7 @@ UserInfoCompoment.propTypes = {
 
 const UserInfo = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withTranslation()(UserInfoCompoment)));
 
 export default UserInfo;

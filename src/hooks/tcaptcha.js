@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 
 const TCaptcha = forwardRef(function TCaptcha(
     { captchaRef, setLoading, isValidateRef, submitRef },
-    ref
+    ref,
 ) {
     const appid = useSelector(
-        (state) => state.siteConfig.tcaptcha_captcha_app_id
+        (state) => state.siteConfig.tcaptcha_captcha_app_id,
     );
     const onLoad = () => {
         try {
@@ -65,7 +65,7 @@ export default function useTCaptcha(setLoading) {
                 />
             );
         },
-        [captchaParamsRef, setLoading, isValidate, submitRef, captchaRef]
+        [captchaParamsRef, setLoading, isValidate, submitRef, captchaRef],
     );
 
     return {

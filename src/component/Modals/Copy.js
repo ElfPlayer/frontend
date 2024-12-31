@@ -46,13 +46,13 @@ export default function CopyDialog(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const SetModalsLoading = useCallback(
         (status) => {
             dispatch(setModalsLoading(status));
         },
-        [dispatch]
+        [dispatch],
     );
     const RefreshFileList = useCallback(() => {
         dispatch(refreshFileList());

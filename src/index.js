@@ -60,5 +60,5 @@ ReactDOM.render(
             </Provider>
         </ErrorBoundary>
     </Suspense>,
-    document.getElementById("root")
+    document.getElementById("root"),
 );

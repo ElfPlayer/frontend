@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo ,useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from "@material-ui/lab";
@@ -39,12 +39,13 @@ export default function PaginationFooter() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
-    const SetPagination = useCallback((p) => dispatch(setPagination(p)), [
-        dispatch,
-    ]);
+    const SetPagination = useCallback(
+        (p) => dispatch(setPagination(p)),
+        [dispatch],
+    );
 
     const handleChange = (event, value) => {
         SetPagination({ ...pagination, page: value });
@@ -52,77 +53,47 @@ export default function PaginationFooter() {
 
     const count = useMemo(
         () => Math.ceil((files.length + folders.length) / pagination.size),
-        [files, folders, pagination.size]
+        [files, folders, pagination.size],
     );
 
     const isMobile = statusHelper.isMobile();
     const isSharePage = statusHelper.isSharePage(location.pathname);
     // const keywords=pagination.page
     const [keywords, setKeywords] = useState(undefined);
-    const jumpPage=()=>{
+    const jumpPage = () => {
         // console.log(count)
-        if(!keywords){
-            ToggleSnackbar(
-                "top",
-                "center",
-                `what are you doing here!`,
-                "info"
-            );
-            return
+        if (!keywords) {
+            ToggleSnackbar("top", "center", `what are you doing here!`, "info");
+            return;
         }
-        if(+keywords<1){
-            ToggleSnackbar(
-                "top",
-                "center",
-                `what are you doing here!`,
-                "info"
-            );
-            return
+        if (+keywords < 1) {
+            ToggleSnackbar("top", "center", `what are you doing here!`, "info");
+            return;
         }
-        if(+keywords>count){
-            ToggleSnackbar(
-                "top",
-                "center",
-                `what are you doing here!`,
-                "info"
-            );
-            return
+        if (+keywords > count) {
+            ToggleSnackbar("top", "center", `what are you doing here!`, "info");
+            return;
         }
-        if(+keywords===pagination.page){
-            ToggleSnackbar(
-                "top",
-                "center",
-                `You are alreadly here!`,
-                "info"
-            );
-            return
+        if (+keywords === pagination.page) {
+            ToggleSnackbar("top", "center", `You are alreadly here!`, "info");
+            return;
         }
-        handleChange(undefined, +keywords)
-    }
-    const jumpToFirst=()=>{
-        if(pagination.page===1){
-            ToggleSnackbar(
-                "top",
-                "center",
-                `You are alreadly here!`,
-                "info"
-            );
-            return
+        handleChange(undefined, +keywords);
+    };
+    const jumpToFirst = () => {
+        if (pagination.page === 1) {
+            ToggleSnackbar("top", "center", `You are alreadly here!`, "info");
+            return;
         }
-        handleChange(undefined, 1)
-    }
-    const jumpToLast=()=>{
-        if(pagination.page===count){
-            ToggleSnackbar(
-                "top",
-                "center",
-                `You are alreadly here!`,
-                "info"
-            );
-            return
+        handleChange(undefined, 1);
+    };
+    const jumpToLast = () => {
+        if (pagination.page === count) {
+            ToggleSnackbar("top", "center", `You are alreadly here!`, "info");
+            return;
         }
-        handleChange(undefined, count)
-    }
+        handleChange(undefined, count);
+    };
 
     if (count > 1 && !loading) {
         return (
@@ -162,10 +133,10 @@ export default function PaginationFooter() {
                             GoTo
                         </Button>
                         <TextField
-                                style={{width:'5rem'}}
-                                value={keywords}
-                                onChange={(e) => setKeywords(e.target.value)}
-                            />
+                            style={{ width: "5rem" }}
+                            value={keywords}
+                            onChange={(e) => setKeywords(e.target.value)}
+                        />
                     </div>
                 </AutoHidden>
             </>

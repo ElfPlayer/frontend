@@ -9,7 +9,7 @@ export default function UseFileSubTitle(query, math, location) {
     const [path, setPath] = useState("");
     const SetSubTitle = useCallback(
         (title) => dispatch(changeSubTitle(title)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {

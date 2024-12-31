@@ -47,19 +47,19 @@ export default function CompressDialog(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const SetModalsLoading = useCallback(
         (status) => {
             dispatch(setModalsLoading(status));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const SubmitCompressTask = useCallback(
         (name, path) => dispatch(submitCompressTask(name, path)),
-        [dispatch]
+        [dispatch],
     );
 
     const setMoveTarget = (folder) => {
@@ -84,7 +84,7 @@ export default function CompressDialog(props) {
                     "top",
                     "right",
                     t("modals.taskCreated"),
-                    "success"
+                    "success",
                 );
                 SetModalsLoading(false);
             })

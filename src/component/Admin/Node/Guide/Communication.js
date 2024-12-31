@@ -88,7 +88,7 @@ export default function Communication(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const testSlave = () => {
@@ -104,7 +104,7 @@ export default function Communication(props) {
                     "top",
                     "right",
                     tDashboard("policy.communicationOK"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {

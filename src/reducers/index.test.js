@@ -18,23 +18,43 @@ import {
     updateFileList,
 } from "../redux/explorer/action";
 import {
-    applyThemes, changeContextMenu, changeViewMethod,
-    closeAllModals, dragAndDrop, drawerToggleAction, navigateTo, navigateUp,
+    applyThemes,
+    changeContextMenu,
+    changeViewMethod,
+    closeAllModals,
+    dragAndDrop,
+    drawerToggleAction,
+    navigateTo,
+    navigateUp,
     openCompressDialog,
-    openCopyDialog, openCreateFolderDialog,
+    openCopyDialog,
+    openCreateFolderDialog,
     openDecompressDialog,
     openGetSourceDialog,
-    openLoadingDialog, openMoveDialog, openMusicDialog,
-    openRemoteDownloadDialog, openRemoveDialog, openRenameDialog, openResaveDialog, openShareDialog,
+    openLoadingDialog,
+    openMoveDialog,
+    openMusicDialog,
+    openRemoteDownloadDialog,
+    openRemoveDialog,
+    openRenameDialog,
+    openResaveDialog,
+    openShareDialog,
     openTorrentDownloadDialog,
     refreshFileList,
     refreshStorage,
     saveFile,
     searchMyFile,
-    setModalsLoading, setNavigator, setNavigatorError, setNavigatorLoadingStatus, setSessionStatus, setShareUserPopover,
-    setSiteConfig, setUserPopover,
-    showImgPreivew, toggleDaylightMode,
-    toggleSnackbar
+    setModalsLoading,
+    setNavigator,
+    setNavigatorError,
+    setNavigatorLoadingStatus,
+    setSessionStatus,
+    setShareUserPopover,
+    setSiteConfig,
+    setUserPopover,
+    showImgPreivew,
+    toggleDaylightMode,
+    toggleSnackbar,
 } from "../redux/explorer";
 
 const initState = {
@@ -52,7 +72,7 @@ describe("index reducer", () => {
 
     it("should handle redux init", () => {
         expect(cloudreveApp(undefined, { type: "@@redux/INIT" })).toEqual(
-            initState
+            initState,
         );
     });
 
@@ -480,8 +500,8 @@ describe("index reducer", () => {
                         fileList: [{ type: "file", id: "test" }],
                     },
                 },
-                action
-            )
+                action,
+            ),
         ).toEqual({
             ...initState,
             explorer: {
@@ -520,8 +540,8 @@ describe("index reducer", () => {
                         dirList: [{ type: "dir", id: "test" }],
                     },
                 },
-                action
-            )
+                action,
+            ),
         ).toEqual({
             ...initState,
             explorer: {
@@ -559,8 +579,8 @@ describe("index reducer", () => {
                         selected: [{ type: "file" }],
                     },
                 },
-                action
-            )
+                action,
+            ),
         ).toEqual({
             ...initState,
             explorer: {
@@ -594,8 +614,8 @@ describe("index reducer", () => {
                         selected: [{ type: "file" }],
                     },
                 },
-                action
-            )
+                action,
+            ),
         ).toEqual({
             ...initState,
             explorer: {
@@ -625,8 +645,8 @@ describe("index reducer", () => {
                         ],
                     },
                 },
-                action
-            )
+                action,
+            ),
         ).toEqual({
             ...initState,
             explorer: {
@@ -1056,7 +1076,7 @@ describe("index reducer", () => {
             "top",
             "right",
             "something wrong",
-            "error"
+            "error",
         );
         expect(cloudreveApp(initState, action)).toEqual({
             ...initState,

@@ -140,7 +140,7 @@ class SearchBarCompoment extends Component {
 
     searchShare = () => {
         this.props.history.push(
-            "/search?keywords=" + encodeURIComponent(this.input)
+            "/search?keywords=" + encodeURIComponent(this.input),
         );
     };
 
@@ -209,7 +209,7 @@ class SearchBarCompoment extends Component {
                                     !this.props.search && (
                                         <MenuItem
                                             onClick={this.searchMyFile(
-                                                this.props.path
+                                                this.props.path,
                                             )}
                                         >
                                             <ListItemIcon
@@ -277,7 +277,7 @@ SearchBarCompoment.propTypes = {
 
 const SearchBar = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(SearchBarCompoment))));
 
 export default SearchBar;

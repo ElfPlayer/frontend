@@ -58,7 +58,7 @@ export default function TextViewer() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -85,7 +85,7 @@ export default function TextViewer() {
                     t("fileManager.errorReadFileContent", {
                         msg: error.message,
                     }),
-                    "error"
+                    "error",
                 );
             })
             .then(() => {

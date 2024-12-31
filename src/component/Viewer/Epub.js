@@ -11,7 +11,7 @@ import TextLoading from "../Placeholder/TextLoading";
 const ReactReader = React.lazy(() =>
     import(/* webpackChunkName: "ReactReader" */ "react-reader").then((m) => ({
         default: m.ReactReader,
-    }))
+    })),
 );
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +44,7 @@ export default function EpubViewer() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const fileUrl = useMemo(
@@ -53,9 +53,9 @@ export default function EpubViewer() {
                 isShare,
                 id,
                 query.get("id"),
-                query.get("share_path")
+                query.get("share_path"),
             ),
-        [id, location, path]
+        [id, location, path],
     );
 
     const classes = useStyles();

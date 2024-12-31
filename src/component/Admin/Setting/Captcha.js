@@ -71,7 +71,7 @@ export default function Captcha() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -192,7 +192,7 @@ export default function Captcha() {
                                         }}
                                         value={options.captcha_height}
                                         onChange={handleChange(
-                                            "captcha_height"
+                                            "captcha_height",
                                         )}
                                         required
                                     />
@@ -212,7 +212,7 @@ export default function Captcha() {
                                         }}
                                         value={options.captcha_CaptchaLen}
                                         onChange={handleChange(
-                                            "captcha_CaptchaLen"
+                                            "captcha_CaptchaLen",
                                         )}
                                         required
                                     />
@@ -286,7 +286,7 @@ export default function Captcha() {
                                                         "1"
                                                     }
                                                     onChange={handleCheckChange(
-                                                        input.field
+                                                        input.field,
                                                     )}
                                                 />
                                             }
@@ -315,7 +315,7 @@ export default function Captcha() {
                                             required
                                             value={options.captcha_ReCaptchaKey}
                                             onChange={handleChange(
-                                                "captcha_ReCaptchaKey"
+                                                "captcha_ReCaptchaKey",
                                             )}
                                         />
                                         <FormHelperText id="component-helper-text">
@@ -347,7 +347,7 @@ export default function Captcha() {
                                                 options.captcha_ReCaptchaSecret
                                             }
                                             onChange={handleChange(
-                                                "captcha_ReCaptchaSecret"
+                                                "captcha_ReCaptchaSecret",
                                             )}
                                         />
                                         <FormHelperText id="component-helper-text">
@@ -392,7 +392,7 @@ export default function Captcha() {
                                                 options.captcha_TCaptcha_SecretId
                                             }
                                             onChange={handleChange(
-                                                "captcha_TCaptcha_SecretId"
+                                                "captcha_TCaptcha_SecretId",
                                             )}
                                         />
                                         <FormHelperText id="component-helper-text">
@@ -426,7 +426,7 @@ export default function Captcha() {
                                                 options.captcha_TCaptcha_SecretKey
                                             }
                                             onChange={handleChange(
-                                                "captcha_TCaptcha_SecretKey"
+                                                "captcha_TCaptcha_SecretKey",
                                             )}
                                         />
                                         <FormHelperText id="component-helper-text">
@@ -460,7 +460,7 @@ export default function Captcha() {
                                                 options.captcha_TCaptcha_CaptchaAppId
                                             }
                                             onChange={handleChange(
-                                                "captcha_TCaptcha_CaptchaAppId"
+                                                "captcha_TCaptcha_CaptchaAppId",
                                             )}
                                         />
                                         <FormHelperText id="component-helper-text">
@@ -494,7 +494,7 @@ export default function Captcha() {
                                                 options.captcha_TCaptcha_AppSecretKey
                                             }
                                             onChange={handleChange(
-                                                "captcha_TCaptcha_AppSecretKey"
+                                                "captcha_TCaptcha_AppSecretKey",
                                             )}
                                         />
                                         <FormHelperText id="component-helper-text">

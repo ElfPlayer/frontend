@@ -72,7 +72,7 @@ export default function GroupForm(props) {
                       source_batch: "0",
                       aria2_batch: "1",
                   },
-              }
+              },
     );
     const [policies, setPolicies] = useState({});
 
@@ -82,7 +82,7 @@ export default function GroupForm(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -159,7 +159,7 @@ export default function GroupForm(props) {
             "webdav_proxy",
             "aria2",
             "redirected_source",
-            "advance_delete"
+            "advance_delete",
         ].forEach((v) => {
             if (groupCopy.OptionsSerialized[v] !== undefined) {
                 groupCopy.OptionsSerialized[v] =
@@ -179,7 +179,7 @@ export default function GroupForm(props) {
         ].forEach((v) => {
             if (groupCopy.OptionsSerialized[v] !== undefined) {
                 groupCopy.OptionsSerialized[v] = parseInt(
-                    groupCopy.OptionsSerialized[v]
+                    groupCopy.OptionsSerialized[v],
                 );
             }
         });
@@ -187,7 +187,7 @@ export default function GroupForm(props) {
         // JSON转换
         try {
             groupCopy.OptionsSerialized.aria2_options = JSON.parse(
-                groupCopy.OptionsSerialized.aria2_options
+                groupCopy.OptionsSerialized.aria2_options,
             );
         } catch (e) {
             ToggleSnackbar("top", "right", t("aria2FormatError"), "warning");
@@ -204,7 +204,7 @@ export default function GroupForm(props) {
                     "top",
                     "right",
                     props.group ? t("saved") : t("added"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -221,7 +221,8 @@ export default function GroupForm(props) {
                 <div className={classes.root}>
                     <Typography variant="h6" gutterBottom>
                         {group.ID === 0 && t("new")}
-                        {group.ID !== 0 && t("editGroup", { group: group.Name })}
+                        {group.ID !== 0 &&
+                            t("editGroup", { group: group.Name })}
                     </Typography>
 
                     <div className={classes.formContainer}>
@@ -253,7 +254,7 @@ export default function GroupForm(props) {
                                             id="demo-mutiple-chip"
                                             value={group.PolicyList}
                                             onChange={handleChange(
-                                                "PolicyList"
+                                                "PolicyList",
                                             )}
                                             input={
                                                 <Input id="select-multiple-chip" />
@@ -267,7 +268,7 @@ export default function GroupForm(props) {
                                                     >
                                                         {policies[pid]}
                                                     </MenuItem>
-                                                )
+                                                ),
                                             )}
                                         </Select>
                                         <FormHelperText id="component-helper-text">
@@ -281,7 +282,7 @@ export default function GroupForm(props) {
                                         <SizeInput
                                             value={group.MaxStorage}
                                             onChange={handleChange(
-                                                "MaxStorage"
+                                                "MaxStorage",
                                             )}
                                             min={0}
                                             max={9223372036854775807}
@@ -330,7 +331,7 @@ export default function GroupForm(props) {
                                             group.OptionsSerialized.source_batch
                                         }
                                         onChange={handleOptionChange(
-                                            "source_batch"
+                                            "source_batch",
                                         )}
                                     />
                                     <FormHelperText id="component-helper-text">
@@ -351,7 +352,7 @@ export default function GroupForm(props) {
                                                     "true"
                                                 }
                                                 onChange={handleCheckChange(
-                                                    "ShareEnabled"
+                                                    "ShareEnabled",
                                                 )}
                                             />
                                         }
@@ -374,7 +375,7 @@ export default function GroupForm(props) {
                                                     .share_download === "true"
                                             }
                                             onChange={handleOptionCheckChange(
-                                                "share_download"
+                                                "share_download",
                                             )}
                                         />
                                     }
@@ -397,7 +398,7 @@ export default function GroupForm(props) {
                                                     "true"
                                                 }
                                                 onChange={handleCheckChange(
-                                                    "WebDAVEnabled"
+                                                    "WebDAVEnabled",
                                                 )}
                                             />
                                         }
@@ -417,11 +418,11 @@ export default function GroupForm(props) {
                                         control={
                                             <Switch
                                                 checked={
-                                                    group.OptionsSerialized.webdav_proxy ===
-                                                    "true"
+                                                    group.OptionsSerialized
+                                                        .webdav_proxy === "true"
                                                 }
                                                 onChange={handleOptionCheckChange(
-                                                    "webdav_proxy"
+                                                    "webdav_proxy",
                                                 )}
                                             />
                                         }
@@ -445,7 +446,7 @@ export default function GroupForm(props) {
                                                 "true"
                                             }
                                             onChange={handleOptionCheckChange(
-                                                "one_time_download"
+                                                "one_time_download",
                                             )}
                                         />
                                     }
@@ -468,7 +469,7 @@ export default function GroupForm(props) {
                                                         .aria2 === "true"
                                                 }
                                                 onChange={handleOptionCheckChange(
-                                                    "aria2"
+                                                    "aria2",
                                                 )}
                                             />
                                         }
@@ -494,7 +495,7 @@ export default function GroupForm(props) {
                                                 .aria2_options
                                         }
                                         onChange={handleOptionChange(
-                                            "aria2_options"
+                                            "aria2_options",
                                         )}
                                     />
                                     <FormHelperText id="component-helper-text">
@@ -518,7 +519,7 @@ export default function GroupForm(props) {
                                             group.OptionsSerialized.aria2_batch
                                         }
                                         onChange={handleOptionChange(
-                                            "aria2_batch"
+                                            "aria2_batch",
                                         )}
                                     />
                                     <FormHelperText id="component-helper-text">
@@ -538,7 +539,7 @@ export default function GroupForm(props) {
                                                     .archive_download === "true"
                                             }
                                             onChange={handleOptionCheckChange(
-                                                "archive_download"
+                                                "archive_download",
                                             )}
                                         />
                                     }
@@ -561,7 +562,7 @@ export default function GroupForm(props) {
                                                         .archive_task === "true"
                                                 }
                                                 onChange={handleOptionCheckChange(
-                                                    "archive_task"
+                                                    "archive_task",
                                                 )}
                                             />
                                         }
@@ -585,7 +586,7 @@ export default function GroupForm(props) {
                                                 .compress_size
                                         }
                                         onChange={handleOptionChange(
-                                            "compress_size"
+                                            "compress_size",
                                         )}
                                         min={0}
                                         max={9223372036854775807}
@@ -605,7 +606,7 @@ export default function GroupForm(props) {
                                                 .decompress_size
                                         }
                                         onChange={handleOptionChange(
-                                            "decompress_size"
+                                            "decompress_size",
                                         )}
                                         min={0}
                                         max={9223372036854775807}
@@ -626,10 +627,11 @@ export default function GroupForm(props) {
                                             <Switch
                                                 checked={
                                                     group.OptionsSerialized
-                                                        .redirected_source === "true"
+                                                        .redirected_source ===
+                                                    "true"
                                                 }
                                                 onChange={handleOptionCheckChange(
-                                                    "redirected_source"
+                                                    "redirected_source",
                                                 )}
                                             />
                                         }
@@ -638,10 +640,14 @@ export default function GroupForm(props) {
                                     <FormHelperText id="component-helper-text">
                                         <Trans
                                             ns={"dashboard"}
-                                            i18nKey={"group.redirectedSourceDes"}
+                                            i18nKey={
+                                                "group.redirectedSourceDes"
+                                            }
                                             components={[
                                                 <Link
-                                                    href={tDashboard("policy.comparesStoragePoliciesLink")}
+                                                    href={tDashboard(
+                                                        "policy.comparesStoragePoliciesLink",
+                                                    )}
                                                     key={0}
                                                     target={"_blank"}
                                                 />,
@@ -664,7 +670,7 @@ export default function GroupForm(props) {
                                                     "true"
                                                 }
                                                 onChange={handleOptionCheckChange(
-                                                    "advance_delete"
+                                                    "advance_delete",
                                                 )}
                                             />
                                         }

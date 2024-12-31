@@ -136,7 +136,7 @@ class MyShareCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("share.shareCanceled"),
-                    "success"
+                    "success",
                 );
                 if (oldList.length === 0) {
                     this.loadList(1, this.state.orderBy);
@@ -147,7 +147,7 @@ class MyShareCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -173,7 +173,7 @@ class MyShareCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -198,7 +198,7 @@ class MyShareCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -211,7 +211,7 @@ class MyShareCompoment extends Component {
                 "&order_by=" +
                 order[0] +
                 "&order=" +
-                order[1]
+                order[1],
         )
             .then((response) => {
                 this.setState({
@@ -224,7 +224,7 @@ class MyShareCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("share.listLoadingError"),
-                    "error"
+                    "error",
                 );
             });
     };
@@ -377,7 +377,7 @@ class MyShareCompoment extends Component {
                                                         (value.password === ""
                                                             ? ""
                                                             : "?password=" +
-                                                              value.password)
+                                                              value.password),
                                                 )
                                             }
                                         >
@@ -389,11 +389,11 @@ class MyShareCompoment extends Component {
                                             <Tooltip
                                                 placement="top"
                                                 title={t(
-                                                    "share.changeToPublic"
+                                                    "share.changeToPublic",
                                                 )}
                                                 onClick={() =>
                                                     this.changePermission(
-                                                        value.key
+                                                        value.key,
                                                     )
                                                 }
                                             >
@@ -509,7 +509,7 @@ class MyShareCompoment extends Component {
 
 const MyShare = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(MyShareCompoment))));
 
 export default MyShare;

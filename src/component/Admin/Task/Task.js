@@ -90,7 +90,7 @@ export default function Task() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const loadList = () => {
@@ -168,7 +168,7 @@ export default function Task() {
         } else if (selectedIndex > 0) {
             newSelected = newSelected.concat(
                 selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1)
+                selected.slice(selectedIndex + 1),
             );
         }
 
@@ -331,7 +331,7 @@ export default function Task() {
                                     <TableCell>
                                         {getTaskProgress(
                                             row.Type,
-                                            row.Progress
+                                            row.Progress,
                                         )}
                                     </TableCell>
                                     <TableCell className={classes.noWrap}>

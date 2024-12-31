@@ -60,7 +60,7 @@ export async function UpdateSiteConfig(store) {
             store.dispatch(setSiteConfig(response.data));
             localStorage.setItem(
                 "siteConfigCache",
-                JSON.stringify(response.data)
+                JSON.stringify(response.data),
             );
 
             // 更新 office WOPI 预览后缀
@@ -75,11 +75,11 @@ export async function UpdateSiteConfig(store) {
             } else {
                 if (pathHelper.isSharePage(window.location.pathname)) {
                     store.dispatch(
-                        changeViewMethod(response.data.share_view_method)
+                        changeViewMethod(response.data.share_view_method),
                     );
                 } else {
                     store.dispatch(
-                        changeViewMethod(response.data.home_view_method)
+                        changeViewMethod(response.data.home_view_method),
                     );
                 }
             }
@@ -91,8 +91,8 @@ export async function UpdateSiteConfig(store) {
                     "right",
                     i18next.t("errLoadingSiteConfig", { ns: "common" }) +
                         error.message,
-                    "error"
-                )
+                    "error",
+                ),
             );
         });
 }

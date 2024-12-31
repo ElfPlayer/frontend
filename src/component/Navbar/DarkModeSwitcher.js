@@ -19,12 +19,13 @@ const useStyles = makeStyles(() => ({
 const DarkModeSwitcher = ({ position }) => {
     const { t } = useTranslation();
     const ThemeType = useSelector(
-        (state) => state.siteConfig.theme.palette.type
+        (state) => state.siteConfig.theme.palette.type,
     );
     const dispatch = useDispatch();
-    const ToggleThemeMode = useCallback(() => dispatch(toggleDaylightMode()), [
-        dispatch,
-    ]);
+    const ToggleThemeMode = useCallback(
+        () => dispatch(toggleDaylightMode()),
+        [dispatch],
+    );
     const isDayLight = (ThemeType && ThemeType === "light") || !ThemeType;
     const isDark = ThemeType && ThemeType === "dark";
     const toggleMode = () => {

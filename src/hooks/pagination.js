@@ -15,12 +15,12 @@ export function usePagination() {
         const all = paginate(
             [...folders, ...files],
             pagination.size,
-            pagination.page
+            pagination.page,
         );
         const dirList = [];
         const fileList = [];
         all.forEach((v) =>
-            v.type === "dir" ? dirList.push(v) : fileList.push(v)
+            v.type === "dir" ? dirList.push(v) : fileList.push(v),
         );
         const startIndex = pagination.size * (pagination.page - 1);
         return { dirList, fileList, startIndex };

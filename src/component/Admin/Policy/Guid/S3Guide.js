@@ -179,10 +179,10 @@ export default function S3Guide(props) {
                       placeholder_with_size: "false",
                       s3_path_style: "true",
                   },
-              }
+              },
     );
     const [policyID, setPolicyID] = useState(
-        props.policy ? props.policy.ID : 0
+        props.policy ? props.policy.ID : 0,
     );
 
     const handleChange = (name) => (event) => {
@@ -210,7 +210,7 @@ export default function S3Guide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submitPolicy = (e) => {
@@ -235,7 +235,7 @@ export default function S3Guide(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(4);
                 setPolicyID(response.data);
@@ -422,7 +422,7 @@ export default function S3Guide(props) {
                                                 .s3_path_style
                                         }
                                         onChange={handleOptionChange(
-                                            "s3_path_style"
+                                            "s3_path_style",
                                         )}
                                         row
                                     >
@@ -724,7 +724,7 @@ export default function S3Guide(props) {
                                             }
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -786,13 +786,13 @@ export default function S3Guide(props) {
                                                     "top",
                                                     "right",
                                                     t(
-                                                        "cannotEnableForPrivateBucket"
+                                                        "cannotEnableForPrivateBucket",
                                                     ),
-                                                    "warning"
+                                                    "warning",
                                                 );
                                             }
                                             handleChange("IsOriginLinkEnable")(
-                                                e
+                                                e,
                                             );
                                         }}
                                         row
@@ -999,7 +999,7 @@ export default function S3Guide(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>
@@ -1058,7 +1058,7 @@ export default function S3Guide(props) {
                                                 .placeholder_with_size
                                         }
                                         onChange={handleOptionChange(
-                                            "placeholder_with_size"
+                                            "placeholder_with_size",
                                         )}
                                         row
                                     >
@@ -1130,11 +1130,11 @@ export default function S3Guide(props) {
                             className={classes.button}
                             onClick={() => {
                                 setActiveStep(
-                                    (prevActiveStep) => prevActiveStep + 1
+                                    (prevActiveStep) => prevActiveStep + 1,
                                 );
                                 setSkipped((prevSkipped) => {
                                     const newSkipped = new Set(
-                                        prevSkipped.values()
+                                        prevSkipped.values(),
                                     );
                                     newSkipped.add(activeStep);
                                     return newSkipped;

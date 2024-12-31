@@ -7,24 +7,24 @@ const listJsonFieldsInOptions = ["file_type", "thumb_exts"];
 export const transformResponse = (response) => {
     boolFields.forEach(
         (field) =>
-            (response.data[field] = response.data[field] ? "true" : "false")
+            (response.data[field] = response.data[field] ? "true" : "false"),
     );
     numberFields.forEach(
-        (field) => (response.data[field] = response.data[field].toString())
+        (field) => (response.data[field] = response.data[field].toString()),
     );
     boolFieldsInOptions.forEach(
         (field) =>
             (response.data.OptionsSerialized[field] = response.data
                 .OptionsSerialized[field]
                 ? "true"
-                : "false")
+                : "false"),
     );
     numberFieldsInOptions.forEach(
         (field) =>
             (response.data.OptionsSerialized[field] = response.data
                 .OptionsSerialized[field]
                 ? response.data.OptionsSerialized[field].toString()
-                : 0)
+                : 0),
     );
 
     listJsonFieldsInOptions.forEach((field) => {
@@ -38,21 +38,21 @@ export const transformResponse = (response) => {
 
 export const transformPolicyRequest = (policyCopy) => {
     boolFields.forEach(
-        (field) => (policyCopy[field] = policyCopy[field] === "true")
+        (field) => (policyCopy[field] = policyCopy[field] === "true"),
     );
     numberFields.forEach(
-        (field) => (policyCopy[field] = parseInt(policyCopy[field]))
+        (field) => (policyCopy[field] = parseInt(policyCopy[field])),
     );
     boolFieldsInOptions.forEach(
         (field) =>
             (policyCopy.OptionsSerialized[field] =
-                policyCopy.OptionsSerialized[field] === "true")
+                policyCopy.OptionsSerialized[field] === "true"),
     );
     numberFieldsInOptions.forEach(
         (field) =>
             (policyCopy.OptionsSerialized[field] = parseInt(
-                policyCopy.OptionsSerialized[field]
-            ))
+                policyCopy.OptionsSerialized[field],
+            )),
     );
 
     listJsonFieldsInOptions.forEach((field) => {

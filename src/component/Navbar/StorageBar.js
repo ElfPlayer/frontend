@@ -111,7 +111,7 @@ class StorageBarCompoment extends Component {
                         "top",
                         "right",
                         this.props.t("navbar.exceedQuota"),
-                        "warning"
+                        "warning",
                     );
                 } else {
                     percent = (response.data.used / response.data.total) * 100;
@@ -191,7 +191,7 @@ StorageBarCompoment.propTypes = {
 
 const StorageBar = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(StorageBarCompoment))));
 
 export default StorageBar;

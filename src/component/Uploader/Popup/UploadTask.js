@@ -162,9 +162,8 @@ export default function UploadTask({
     const theme = useTheme();
     const [taskHover, setTaskHover] = useState(false);
     const [expanded, setExpanded] = useState(false);
-    const { status, error, progress, speed, speedAvg, retry } = useUpload(
-        uploader
-    );
+    const { status, error, progress, speed, speedAvg, retry } =
+        useUpload(uploader);
     const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
@@ -220,7 +219,7 @@ export default function UploadTask({
                                 speed: getSpeedText(
                                     speed,
                                     speedAvg,
-                                    useAvgSpeed
+                                    useAvgSpeed,
                                 ),
                                 uploaded: sizeToString(progress.total.loaded),
                                 total: sizeToString(progress.total.size),
@@ -260,7 +259,7 @@ export default function UploadTask({
                     label={t("resumed")}
                 />
             ) : null,
-        [status, fullScreen]
+        [status, fullScreen],
     );
 
     const continueLabel = useMemo(
@@ -273,7 +272,7 @@ export default function UploadTask({
                     label={t("resumable")}
                 />
             ) : null,
-        [status, fullScreen]
+        [status, fullScreen],
     );
 
     const progressBar = useMemo(
@@ -293,7 +292,7 @@ export default function UploadTask({
                     className={classes.progress}
                 />
             ) : null,
-        [status, progress, theme]
+        [status, progress, theme],
     );
 
     const taskDetail = useMemo(() => {

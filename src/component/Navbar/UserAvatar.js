@@ -96,7 +96,7 @@ class UserAvatarCompoment extends Component {
         const loginCheck = Auth.Check(this.props.isLogin);
         const user = Auth.GetUser(this.props.isLogin);
         const isAdminPage = pathHelper.isAdminPage(
-            this.props.location.pathname
+            this.props.location.pathname,
         );
 
         return (
@@ -120,7 +120,7 @@ class UserAvatarCompoment extends Component {
                                             <IconButton
                                                 onClick={() =>
                                                     this.props.history.push(
-                                                        "/setting?"
+                                                        "/setting?",
                                                     )
                                                 }
                                                 color="inherit"
@@ -170,7 +170,7 @@ UserAvatarCompoment.propTypes = {
 
 const UserAvatar = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(UserAvatarCompoment))));
 
 export default UserAvatar;

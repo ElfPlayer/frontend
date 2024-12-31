@@ -270,8 +270,8 @@ class UserSettingCompoment extends Component {
             this.props.viewMethod === "icon"
                 ? "list"
                 : this.props.viewMethod === "list"
-                ? "smallIcon"
-                : "icon";
+                  ? "smallIcon"
+                  : "icon";
         Auth.SetPreference("view_method", newMethod);
         this.props.changeView(newMethod);
     };
@@ -290,7 +290,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -305,7 +305,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("setting.avatarUpdated"),
-                    "success"
+                    "success",
                 );
                 this.setState({
                     loading: "",
@@ -316,7 +316,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -336,7 +336,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("setting.nickChanged"),
-                    "success"
+                    "success",
                 );
                 this.setState({
                     loading: "",
@@ -348,7 +348,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -372,7 +372,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("setting.avatarUpdated"),
-                    "success"
+                    "success",
                 );
                 this.setState({
                     loading: "",
@@ -383,7 +383,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -400,7 +400,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("setting.settingSaved"),
-                    "success"
+                    "success",
                 );
                 this.setState({
                     settings: {
@@ -414,7 +414,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -425,7 +425,7 @@ class UserSettingCompoment extends Component {
                 "top",
                 "right",
                 this.props.t("login.passwordNotMatch"),
-                "warning"
+                "warning",
             );
             return;
         }
@@ -441,7 +441,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("login.passwordReset"),
-                    "success"
+                    "success",
                 );
                 this.setState({
                     loading: "",
@@ -453,7 +453,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -473,7 +473,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("setting.themeColorChanged"),
-                    "success"
+                    "success",
                 );
                 this.props.applyThemes(this.state.chosenTheme);
                 this.setState({
@@ -485,7 +485,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -507,7 +507,7 @@ class UserSettingCompoment extends Component {
                         "top",
                         "right",
                         response.data.msg,
-                        "error"
+                        "error",
                     );
                     this.setState({
                         loading: "",
@@ -517,7 +517,7 @@ class UserSettingCompoment extends Component {
                         "top",
                         "right",
                         response.data.msg,
-                        "success"
+                        "success",
                     );
                     this.setState({
                         loading: "",
@@ -530,7 +530,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -555,7 +555,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
             });
     };
@@ -572,7 +572,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     this.props.t("setting.settingSaved"),
-                    "success"
+                    "success",
                 );
                 this.setState({
                     loading: "",
@@ -588,7 +588,7 @@ class UserSettingCompoment extends Component {
                     "top",
                     "right",
                     error.message,
-                    "error"
+                    "error",
                 );
                 this.setState({
                     loading: "",
@@ -1071,14 +1071,16 @@ class UserSettingCompoment extends Component {
                                 button
                                 onClick={() =>
                                     window.open(
-                                        "https://github.com/cloudreve/cloudreve"
+                                        "https://github.com/cloudreve/cloudreve",
                                     )
                                 }
                             >
                                 <ListItemIcon className={classes.iconFix}>
                                     <GitHub />
                                 </ListItemIcon>
-                                <ListItemText primary={t("setting.githubRepo")} />
+                                <ListItemText
+                                    primary={t("setting.githubRepo")}
+                                />
 
                                 <ListItemSecondaryAction
                                     className={classes.flexContainer}
@@ -1335,7 +1337,7 @@ class UserSettingCompoment extends Component {
                                             style={{ backgroundColor: value }}
                                         />
                                     </ToggleButton>
-                                )
+                                ),
                             )}
                         </ToggleButtonGroup>
                     </DialogContent>
@@ -1403,7 +1405,7 @@ class UserSettingCompoment extends Component {
 
 const UserSetting = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(UserSettingCompoment))));
 
 export default UserSetting;

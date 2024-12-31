@@ -71,7 +71,7 @@ export default function NodeGuide(props) {
                       interval: "10",
                       timeout: "10",
                   },
-              }
+              },
     );
 
     const usedSteps = useMemo(() => {
@@ -103,7 +103,7 @@ export default function NodeGuide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const nextStep = () => {
@@ -116,10 +116,10 @@ export default function NodeGuide(props) {
             };
             nodeCopy.Rank = parseInt(nodeCopy.Rank);
             nodeCopy.Aria2OptionsSerialized.interval = parseInt(
-                nodeCopy.Aria2OptionsSerialized.interval
+                nodeCopy.Aria2OptionsSerialized.interval,
             );
             nodeCopy.Aria2OptionsSerialized.timeout = parseInt(
-                nodeCopy.Aria2OptionsSerialized.timeout
+                nodeCopy.Aria2OptionsSerialized.timeout,
             );
             nodeCopy.Aria2Enabled = nodeCopy.Aria2Enabled === "true";
             API.post("/admin/node", {
@@ -130,7 +130,7 @@ export default function NodeGuide(props) {
                         "top",
                         "right",
                         props.node ? t("nodeSavedNow") : t("nodeAdded"),
-                        "success"
+                        "success",
                     );
                     setActiveStep(activeStep + 1);
                     setLoading(false);

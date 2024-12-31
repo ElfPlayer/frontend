@@ -39,7 +39,7 @@ export default function Delete(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submitRemove = (e) => {
@@ -72,7 +72,7 @@ export default function Delete(props) {
                         "top",
                         "right",
                         response.rawData.msg,
-                        "warning"
+                        "warning",
                     );
                 }
                 props.setModalsLoading(false);

@@ -71,7 +71,7 @@ export default function Theme() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const deleteTheme = (color) => {
@@ -80,7 +80,7 @@ export default function Theme() {
                 "top",
                 "right",
                 t("cannotDeleteDefaultTheme"),
-                "warning"
+                "warning",
             );
             return;
         }
@@ -104,7 +104,7 @@ export default function Theme() {
                 "top",
                 "right",
                 t("duplicatedThemePrimaryColor"),
-                "warning"
+                "warning",
             );
             return;
         }
@@ -247,9 +247,11 @@ export default function Theme() {
                                                     }}
                                                     onBlur={(e) => {
                                                         try {
-                                                            const res = JSON.parse(
-                                                                e.target.value
-                                                            );
+                                                            const res =
+                                                                JSON.parse(
+                                                                    e.target
+                                                                        .value,
+                                                                );
                                                             if (
                                                                 !(
                                                                     "palette" in
@@ -285,7 +287,7 @@ export default function Theme() {
                                                                 {
                                                                     ...themeConfigError,
                                                                     [k]: true,
-                                                                }
+                                                                },
                                                             );
                                                             return;
                                                         }

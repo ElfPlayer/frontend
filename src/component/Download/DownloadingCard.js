@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
     infoValue: {
         color: theme.palette.text.secondary,
         textAlign: "left",
-        paddingLeft:theme.spacing(1),
+        paddingLeft: theme.spacing(1),
     },
     bitmap: {
         width: "100%",
@@ -194,7 +194,7 @@ export default function DownloadingCard(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -330,7 +330,7 @@ export default function DownloadingCard(props) {
                     "top",
                     "right",
                     t("operationSubmitted"),
-                    "success"
+                    "success",
                 );
                 setSelectDialogOpen(false);
             })
@@ -346,51 +346,21 @@ export default function DownloadingCard(props) {
         const processStyle = (value) => ({
             background:
                 "linear-gradient(to right, " +
-                (theme.palette.type ===
-                    "dark"
-                    ? darken(
-                        theme.palette
-                            .primary
-                            .main,
-                        0.4
-                    )
-                    : lighten(
-                        theme.palette
-                            .primary
-                            .main,
-                        0.85
-                    )) +
+                (theme.palette.type === "dark"
+                    ? darken(theme.palette.primary.main, 0.4)
+                    : lighten(theme.palette.primary.main, 0.85)) +
                 " 0%," +
-                (theme.palette.type ===
-                    "dark"
-                    ? darken(
-                        theme.palette
-                            .primary
-                            .main,
-                        0.4
-                    )
-                    : lighten(
-                        theme.palette
-                            .primary
-                            .main,
-                        0.85
-                    )) +
+                (theme.palette.type === "dark"
+                    ? darken(theme.palette.primary.main, 0.4)
+                    : lighten(theme.palette.primary.main, 0.85)) +
                 " " +
-                getPercent(
-                    value.completedLength,
-                    value.length
-                ).toFixed(0) +
+                getPercent(value.completedLength, value.length).toFixed(0) +
                 "%," +
-                theme.palette.background
-                    .paper +
+                theme.palette.background.paper +
                 " " +
-                getPercent(
-                    value.completedLength,
-                    value.length
-                ).toFixed(0) +
+                getPercent(value.completedLength, value.length).toFixed(0) +
                 "%," +
-                theme.palette.background
-                    .paper +
+                theme.palette.background.paper +
                 " 100%)",
         });
 
@@ -401,18 +371,10 @@ export default function DownloadingCard(props) {
                     scope="row"
                     className={classes.subFile}
                 >
-                    <Typography
-                        className={
-                            classes.subFileName
-                        }
-                    >
+                    <Typography className={classes.subFileName}>
                         <TypeIcon
-                            className={
-                                classes.subFileIcon
-                            }
-                            fileName={
-                                value.path
-                            }
+                            className={classes.subFileIcon}
+                            fileName={value.path}
                         />
                         {value.path}
                     </Typography>
@@ -424,9 +386,7 @@ export default function DownloadingCard(props) {
                 >
                     <Typography noWrap>
                         {" "}
-                        {sizeToString(
-                            value.length
-                        )}
+                        {sizeToString(value.length)}
                     </Typography>
                 </TableCell>
                 <TableCell
@@ -437,23 +397,15 @@ export default function DownloadingCard(props) {
                     <Typography noWrap>
                         {getPercent(
                             value.completedLength,
-                            value.length
+                            value.length,
                         ).toFixed(2)}
                         %
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Tooltip
-                        title={t(
-                            "deleteThisFile"
-                        )}
-                    >
+                    <Tooltip title={t("deleteThisFile")}>
                         <IconButton
-                            onClick={() =>
-                                deleteFile(
-                                    value.index
-                                )
-                            }
+                            onClick={() => deleteFile(value.index)}
                             disabled={loading}
                             size={"small"}
                         >
@@ -485,9 +437,7 @@ export default function DownloadingCard(props) {
                     },
                 }}
                 data={activeFiles()}
-                itemContent={(index, value) => (
-                    subFileCell(value)
-                )}
+                itemContent={(index, value) => subFileCell(value)}
             />
         ) : (
             <div className={classes.scroll}>
@@ -507,11 +457,7 @@ export default function DownloadingCard(props) {
                 </Table>
             </div>
         );
-    }, [
-        classes,
-        theme,
-        activeFiles,
-    ]);
+    }, [classes, theme, activeFiles]);
 
     return (
         <Card className={classes.card}>
@@ -553,7 +499,7 @@ export default function DownloadingCard(props) {
                                 <span>
                                     {getPercent(
                                         task.downloaded,
-                                        task.total
+                                        task.total,
                                     ).toFixed(2)}
                                     % -{" "}
                                     {task.downloaded === 0
@@ -580,7 +526,7 @@ export default function DownloadingCard(props) {
                                         [classes.expanded]:
                                             expanded === task.info.gid,
                                     },
-                                    classes.expand
+                                    classes.expand,
                                 )}
                             />
                         </IconButton>
@@ -596,7 +542,8 @@ export default function DownloadingCard(props) {
                             color="secondary"
                             onClick={() =>
                                 history.push(
-                                    "/home?path=" + encodeURIComponent(task.dst)
+                                    "/home?path=" +
+                                        encodeURIComponent(task.dst),
                                 )
                             }
                         >
@@ -744,14 +691,24 @@ export default function DownloadingCard(props) {
                                     {task.info.numPieces}
                                 </Grid>
                             </Grid>
-                            {props.task.node && <Grid container xs={12} sm={4}>
-                                <Grid item xs={5} className={classes.infoTitle}>
-                                    {t("downloadNode")}
+                            {props.task.node && (
+                                <Grid container xs={12} sm={4}>
+                                    <Grid
+                                        item
+                                        xs={5}
+                                        className={classes.infoTitle}
+                                    >
+                                        {t("downloadNode")}
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        xs={7}
+                                        className={classes.infoValue}
+                                    >
+                                        {props.task.node}
+                                    </Grid>
                                 </Grid>
-                                <Grid item xs={7} className={classes.infoValue}>
-                                    {props.task.node}
-                                </Grid>
-                            </Grid>}
+                            )}
                         </Grid>
                     </div>
                 </ExpansionPanelDetails>

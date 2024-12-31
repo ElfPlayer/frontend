@@ -98,7 +98,7 @@ export default function ThumbGenerators({ options, setOptions }) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const handleChange = (name) => (event) => {
@@ -119,7 +119,7 @@ export default function ThumbGenerators({ options, setOptions }) {
                     "top",
                     "right",
                     t("executableTestSuccess", { version: response.data }),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -146,7 +146,7 @@ export default function ThumbGenerators({ options, setOptions }) {
                 "top",
                 "center",
                 t("thumbDependencyWarning"),
-                "warning"
+                "warning",
             );
         }
     };
@@ -172,7 +172,7 @@ export default function ThumbGenerators({ options, setOptions }) {
                                         options[generator.enableFlag] === "1"
                                     }
                                     onChange={handleEnableChange(
-                                        generator.enableFlag
+                                        generator.enableFlag,
                                     )}
                                 />
                             }
@@ -191,7 +191,7 @@ export default function ThumbGenerators({ options, setOptions }) {
                                     variant="outlined"
                                     value={options[generator.executableSetting]}
                                     onChange={handleChange(
-                                        generator.executableSetting
+                                        generator.executableSetting,
                                     )}
                                     InputProps={{
                                         endAdornment: (
@@ -204,7 +204,7 @@ export default function ThumbGenerators({ options, setOptions }) {
                                                             options[
                                                                 generator
                                                                     .executableSetting
-                                                            ]
+                                                            ],
                                                         )
                                                     }
                                                     color="primary"

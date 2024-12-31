@@ -49,7 +49,7 @@ import { useTranslation } from "react-i18next";
 
 const ListItem = withStyles((theme) => ({
     root: {
-        borderRadius:theme.shape.borderRadius,
+        borderRadius: theme.shape.borderRadius,
     },
 }))(MuiListItem);
 
@@ -68,7 +68,7 @@ const ExpansionPanel = withStyles({
     expanded: {},
 })(MuiExpansionPanel);
 
-const ExpansionPanelSummary = withStyles((theme) =>({
+const ExpansionPanelSummary = withStyles((theme) => ({
     root: {
         minHeight: 0,
         padding: 0,
@@ -117,13 +117,13 @@ const useStyles = makeStyles((theme) => ({
         overflow: "hidden",
         textOverflow: "ellipsis",
     },
-    paddingList:{
-        padding:theme.spacing(1),
+    paddingList: {
+        padding: theme.spacing(1),
     },
-    paddingSummary:{
-        paddingLeft:theme.spacing(1),
-        paddingRight:theme.spacing(1),
-    }
+    paddingSummary: {
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+    },
 }));
 
 const icons = {
@@ -159,19 +159,20 @@ export default function FileTag() {
     const [addTagModal, setAddTagModal] = useState(false);
     const [tagHover, setTagHover] = useState(null);
     const [tags, setTags] = useState(
-        Auth.GetUser().tags ? Auth.GetUser().tags : []
+        Auth.GetUser().tags ? Auth.GetUser().tags : [],
     );
 
     const dispatch = useDispatch();
-    const SearchMyFile = useCallback((k, p) => dispatch(searchMyFile(k, p)), [
-        dispatch,
-    ]);
+    const SearchMyFile = useCallback(
+        (k, p) => dispatch(searchMyFile(k, p)),
+        [dispatch],
+    );
     const NavigateTo = useCallback((k) => dispatch(navigateTo(k)), [dispatch]);
 
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const getIcon = (icon, color) => {
@@ -248,10 +249,10 @@ export default function FileTag() {
                                     className={classNames(
                                         {
                                             [classes.expanded]:
-                                            tagOpen && isHomePage,
+                                                tagOpen && isHomePage,
                                             [classes.iconFix]: true,
                                         },
-                                        classes.expand
+                                        classes.expand,
                                     )}
                                 />
                                 {!(tagOpen && isHomePage) && (
@@ -266,7 +267,10 @@ export default function FileTag() {
                 </ExpansionPanelSummary>
 
                 <ExpansionPanelDetails>
-                    <List className={classes.paddingList} onMouseLeave={() => setTagHover(null)}>
+                    <List
+                        className={classes.paddingList}
+                        onMouseLeave={() => setTagHover(null)}
+                    >
                         <ListItem
                             button
                             id="pickfiles"
@@ -368,7 +372,7 @@ export default function FileTag() {
                                         v.type === 0
                                             ? v.icon
                                             : "FolderHeartOutline",
-                                        v.type === 0 ? v.color : null
+                                        v.type === 0 ? v.color : null,
                                     )}
                                 </ListItemIcon>
                                 <ListItemText

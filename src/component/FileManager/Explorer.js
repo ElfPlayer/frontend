@@ -131,33 +131,34 @@ export default function Explorer({ share }) {
     const path = useSelector((state) => state.navigator.path);
     const sortMethod = useSelector((state) => state.viewUpdate.sortMethod);
     const navigatorErrorMsg = useSelector(
-        (state) => state.viewUpdate.navigatorErrorMsg
+        (state) => state.viewUpdate.navigatorErrorMsg,
     );
     const navigatorError = useSelector(
-        (state) => state.viewUpdate.navigatorError
+        (state) => state.viewUpdate.navigatorError,
     );
     const viewMethod = useSelector(
-        (state) => state.viewUpdate.explorerViewMethod
+        (state) => state.viewUpdate.explorerViewMethod,
     );
 
-    const OpenRemoveDialog = useCallback(() => dispatch(openRemoveDialog()), [
-        dispatch,
-    ]);
+    const OpenRemoveDialog = useCallback(
+        () => dispatch(openRemoveDialog()),
+        [dispatch],
+    );
     const SetSelectedTarget = useCallback(
         (targets) => dispatch(setSelectedTarget(targets)),
-        [dispatch]
+        [dispatch],
     );
     const ChangeContextMenu = useCallback(
         (type, open) => dispatch(changeContextMenu(type, open)),
-        [dispatch]
+        [dispatch],
     );
     const ChangeSortMethod = useCallback(
         (method) => dispatch(explorer.actions.changeSortMethod(method)),
-        [dispatch]
+        [dispatch],
     );
     const SelectAll = useCallback(
         () => dispatch(explorer.actions.selectAll()),
-        [dispatch]
+        [dispatch],
     );
 
     const { dirList, fileList, startIndex } = usePagination();
@@ -191,7 +192,7 @@ export default function Explorer({ share }) {
             configure({
                 ignoreTags: ["input", "select", "textarea"],
             }),
-        []
+        [],
     );
 
     const contextMenu = (e) => {
@@ -234,7 +235,7 @@ export default function Explorer({ share }) {
                                     ChangeSortMethod(
                                         sortMethod === "namePos"
                                             ? "nameRev"
-                                            : "namePos"
+                                            : "namePos",
                                     );
                                 }}
                             >
@@ -262,7 +263,7 @@ export default function Explorer({ share }) {
                                     ChangeSortMethod(
                                         sortMethod === "sizePos"
                                             ? "sizeRes"
-                                            : "sizePos"
+                                            : "sizePos",
                                     );
                                 }}
                             >
@@ -292,7 +293,7 @@ export default function Explorer({ share }) {
                                     ChangeSortMethod(
                                         sortMethod === "modifyTimePos"
                                             ? "modifyTimeRev"
-                                            : "modifyTimePos"
+                                            : "modifyTimePos",
                                     );
                                 }}
                             >
@@ -335,7 +336,7 @@ export default function Explorer({ share }) {
                 </TableBody>
             </Table>
         ),
-        [dirList, fileList, path, sortMethod, ChangeSortMethod, classes]
+        [dirList, fileList, path, sortMethod, ChangeSortMethod, classes],
     );
 
     const normalView = useMemo(
@@ -409,7 +410,7 @@ export default function Explorer({ share }) {
                 )}
             </div>
         ),
-        [dirList, fileList, classes]
+        [dirList, fileList, classes],
     );
 
     const view = viewMethod === "list" ? listView : normalView;
@@ -424,7 +425,7 @@ export default function Explorer({ share }) {
                     [classes.rootTable]: viewMethod === "list",
                     [classes.rootShare]: share,
                 },
-                classes.button
+                classes.button,
             )}
         >
             <GlobalHotKeys handlers={handlers} allowChanges keyMap={keyMap} />

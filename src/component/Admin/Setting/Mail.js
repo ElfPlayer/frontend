@@ -85,7 +85,7 @@ export default function Mail() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -324,7 +324,7 @@ export default function Mail() {
                                                 options.smtpEncryption === "1"
                                             }
                                             onChange={handleCheckChange(
-                                                "smtpEncryption"
+                                                "smtpEncryption",
                                             )}
                                         />
                                     }
@@ -370,7 +370,7 @@ export default function Mail() {
                                 <Input
                                     value={options.mail_activation_template}
                                     onChange={handleChange(
-                                        "mail_activation_template"
+                                        "mail_activation_template",
                                     )}
                                     multiline
                                     rowsMax="10"
@@ -390,7 +390,7 @@ export default function Mail() {
                                 <Input
                                     value={options.mail_reset_pwd_template}
                                     onChange={handleChange(
-                                        "mail_reset_pwd_template"
+                                        "mail_reset_pwd_template",
                                     )}
                                     multiline
                                     rowsMax="10"

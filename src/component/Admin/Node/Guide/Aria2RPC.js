@@ -94,7 +94,7 @@ export default function Aria2RPC(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const testAria2 = () => {
@@ -111,7 +111,7 @@ export default function Aria2RPC(props) {
                     "top",
                     "right",
                     t("ariaSuccess", { version: response.data }),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -182,7 +182,7 @@ export default function Aria2RPC(props) {
                                 required
                                 value={props.node.Aria2Enabled}
                                 onChange={props.handleTextChange(
-                                    "Aria2Enabled"
+                                    "Aria2Enabled",
                                 )}
                                 row
                             >
@@ -268,7 +268,7 @@ export default function Aria2RPC(props) {
                                         props.node.Aria2OptionsSerialized.server
                                     }
                                     onChange={props.handleOptionChange(
-                                        "server"
+                                        "server",
                                     )}
                                 />
                                 <FormHelperText id="component-helper-text">
@@ -348,7 +348,7 @@ export default function Aria2RPC(props) {
                                             .interval
                                     }
                                     onChange={props.handleOptionChange(
-                                        "interval"
+                                        "interval",
                                     )}
                                 />
                                 <FormHelperText id="component-helper-text">
@@ -373,7 +373,7 @@ export default function Aria2RPC(props) {
                                             .timeout
                                     }
                                     onChange={props.handleOptionChange(
-                                        "timeout"
+                                        "timeout",
                                     )}
                                 />
                                 <FormHelperText id="component-helper-text">
@@ -394,7 +394,7 @@ export default function Aria2RPC(props) {
                                             .options
                                     }
                                     onChange={props.handleOptionChange(
-                                        "options"
+                                        "options",
                                     )}
                                 />
                                 <FormHelperText id="component-helper-text">

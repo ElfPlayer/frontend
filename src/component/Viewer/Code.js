@@ -18,8 +18,8 @@ import { toggleSnackbar } from "../../redux/explorer";
 import UseFileSubTitle from "../../hooks/fileSubtitle";
 import { useTranslation } from "react-i18next";
 
-const MonacoEditor = React.lazy(() =>
-    import(/* webpackChunkName: "codeEditor" */ "react-monaco-editor")
+const MonacoEditor = React.lazy(
+    () => import(/* webpackChunkName: "codeEditor" */ "react-monaco-editor"),
 );
 
 const useStyles = makeStyles((theme) => ({
@@ -74,7 +74,7 @@ export default function CodeViewer() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -107,7 +107,7 @@ export default function CodeViewer() {
                     t("fileManager.errorReadFileContent", {
                         msg: error.message,
                     }),
-                    "error"
+                    "error",
                 );
             })
             .then(() => {
@@ -141,7 +141,7 @@ export default function CodeViewer() {
                                 <Switch
                                     onChange={(e) =>
                                         setWordWrap(
-                                            e.target.checked ? "on" : "off"
+                                            e.target.checked ? "on" : "off",
                                         )
                                     }
                                 />
@@ -160,8 +160,8 @@ export default function CodeViewer() {
                                 new Set(
                                     Object.keys(codePreviewSuffix).map((k) => {
                                         return codePreviewSuffix[k];
-                                    })
-                                )
+                                    }),
+                                ),
                             ).map((extension, index) => (
                                 <MenuItem value={extension} key={index}>
                                     {extension}

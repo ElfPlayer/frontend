@@ -87,7 +87,7 @@ export default function ImageSetting() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -96,7 +96,7 @@ export default function ImageSetting() {
         })
             .then((response) => {
                 response.data.thumb_proxy_policy = JSON.parse(
-                    response.data.thumb_proxy_policy
+                    response.data.thumb_proxy_policy,
                 ).map((v) => {
                     return v.toString();
                 });
@@ -286,7 +286,7 @@ export default function ImageSetting() {
                                 <Input
                                     value={options.office_preview_service}
                                     onChange={handleChange(
-                                        "office_preview_service"
+                                        "office_preview_service",
                                     )}
                                     required
                                 />
@@ -357,7 +357,7 @@ export default function ImageSetting() {
                                                 options.wopi_enabled === "1"
                                             }
                                             onChange={handleCheckChange(
-                                                "wopi_enabled"
+                                                "wopi_enabled",
                                             )}
                                         />
                                     }
@@ -376,7 +376,7 @@ export default function ImageSetting() {
                                         <Input
                                             value={options.wopi_endpoint}
                                             onChange={handleChange(
-                                                "wopi_endpoint"
+                                                "wopi_endpoint",
                                             )}
                                             required
                                         />
@@ -396,7 +396,7 @@ export default function ImageSetting() {
                                             type={"number"}
                                             value={options.wopi_session_timeout}
                                             onChange={handleChange(
-                                                "wopi_session_timeout"
+                                                "wopi_session_timeout",
                                             )}
                                             required
                                         />
@@ -497,7 +497,7 @@ export default function ImageSetting() {
                                     }}
                                     value={options.thumb_max_task_count}
                                     onChange={handleChange(
-                                        "thumb_max_task_count"
+                                        "thumb_max_task_count",
                                     )}
                                     required
                                 />
@@ -516,7 +516,7 @@ export default function ImageSetting() {
                                     type={"test"}
                                     value={options.thumb_encode_method}
                                     onChange={handleChange(
-                                        "thumb_encode_method"
+                                        "thumb_encode_method",
                                     )}
                                     required
                                 />
@@ -540,7 +540,7 @@ export default function ImageSetting() {
                                     }}
                                     value={options.thumb_encode_quality}
                                     onChange={handleChange(
-                                        "thumb_encode_quality"
+                                        "thumb_encode_quality",
                                     )}
                                     required
                                 />
@@ -556,7 +556,7 @@ export default function ImageSetting() {
                                     <SizeInput
                                         value={options.thumb_max_src_size}
                                         onChange={handleChange(
-                                            "thumb_max_src_size"
+                                            "thumb_max_src_size",
                                         )}
                                         required
                                         min={0}
@@ -580,7 +580,7 @@ export default function ImageSetting() {
                                                 "1"
                                             }
                                             onChange={handleCheckChange(
-                                                "thumb_gc_after_gen"
+                                                "thumb_gc_after_gen",
                                             )}
                                         />
                                     }
@@ -622,7 +622,7 @@ export default function ImageSetting() {
                                                 "1"
                                             }
                                             onChange={handleCheckChange(
-                                                "thumb_proxy_enabled"
+                                                "thumb_proxy_enabled",
                                             )}
                                         />
                                     }
@@ -636,7 +636,7 @@ export default function ImageSetting() {
                                     <PolicySelector
                                         value={options.thumb_proxy_policy}
                                         onChange={handleChange(
-                                            "thumb_proxy_policy"
+                                            "thumb_proxy_policy",
                                         )}
                                         filter={(t) => t.Type !== "local"}
                                         label={t("proxyPolicyList")}

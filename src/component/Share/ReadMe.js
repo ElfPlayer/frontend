@@ -78,7 +78,7 @@ export default function ReadMe(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const $vm = React.createRef();
@@ -93,7 +93,7 @@ export default function ReadMe(props) {
             "/share/readme/" +
                 props.share.key +
                 "?path=" +
-                encodeURIComponent(previewPath)
+                encodeURIComponent(previewPath),
         )
             .then((response) => {
                 setContent(response.rawData.toString());
@@ -103,7 +103,7 @@ export default function ReadMe(props) {
                     "top",
                     "right",
                     t("share.readmeError", { msg: error.message }),
-                    "error"
+                    "error",
                 );
             })
             .then(() => {

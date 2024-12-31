@@ -29,7 +29,7 @@ export default function FileFilter({ setFilter, setSearch, open, onClose }) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const handleChange = (name) => (event) => {

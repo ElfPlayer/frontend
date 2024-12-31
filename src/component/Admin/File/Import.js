@@ -102,7 +102,7 @@ export default function Import() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submit = (e) => {
@@ -126,7 +126,7 @@ export default function Import() {
                     "top",
                     "right",
                     t("importTaskCreated"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -204,7 +204,7 @@ export default function Import() {
                     "top",
                     "right",
                     t("manuallyPathOnly"),
-                    "warning"
+                    "warning",
                 );
                 return;
             }
@@ -215,7 +215,7 @@ export default function Import() {
                     "top",
                     "right",
                     t("selectTargetUser"),
-                    "warning"
+                    "warning",
                 );
                 return;
             }
@@ -241,7 +241,7 @@ export default function Import() {
                         setOptions({
                             ...options,
                             src: p,
-                        })
+                        }),
                     )}
                 />
 
@@ -273,7 +273,7 @@ export default function Import() {
                         setOptions({
                             ...options,
                             dst: p,
-                        })
+                        }),
                     )}
                 />
 
@@ -451,7 +451,7 @@ export default function Import() {
                                         <Switch
                                             checked={options.recursive}
                                             onChange={handleCheckChange(
-                                                "recursive"
+                                                "recursive",
                                             )}
                                         />
                                     }

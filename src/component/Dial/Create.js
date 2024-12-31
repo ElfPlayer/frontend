@@ -66,15 +66,15 @@ export default function UploadButton(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const OpenNewFolderDialog = useCallback(
         () => dispatch(openCreateFolderDialog()),
-        [dispatch]
+        [dispatch],
     );
     const OpenNewFileDialog = useCallback(
         () => dispatch(openCreateFileDialog()),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {

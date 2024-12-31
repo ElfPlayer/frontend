@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
-            3
+            3,
         )}px`,
     },
     avatar: {
@@ -99,7 +99,7 @@ function LoginForm() {
 
     const loginCaptcha = useSelector((state) => state.siteConfig.loginCaptcha);
     const registerEnabled = useSelector(
-        (state) => state.siteConfig.registerEnabled
+        (state) => state.siteConfig.registerEnabled,
     );
     const title = useSelector((state) => state.siteConfig.title);
     const authn = useSelector((state) => state.siteConfig.authn);
@@ -110,15 +110,15 @@ function LoginForm() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const ApplyThemes = useCallback(
         (theme) => dispatch(applyThemes(theme)),
-        [dispatch]
+        [dispatch],
     );
     const SetSessionStatus = useCallback(
         (status) => dispatch(setSessionStatus(status)),
-        [dispatch]
+        [dispatch],
     );
 
     const history = useHistory();
@@ -168,7 +168,7 @@ function LoginForm() {
                 "top",
                 "right",
                 t("login.browserNotSupport"),
-                "warning"
+                "warning",
             );
 
             return;
@@ -181,12 +181,12 @@ function LoginForm() {
                 const credentialRequestOptions = response.data;
                 console.log(credentialRequestOptions);
                 credentialRequestOptions.publicKey.challenge = bufferDecode(
-                    credentialRequestOptions.publicKey.challenge
+                    credentialRequestOptions.publicKey.challenge,
                 );
                 credentialRequestOptions.publicKey.allowCredentials.forEach(
                     function (listItem) {
                         listItem.id = bufferDecode(listItem.id);
-                    }
+                    },
                 );
 
                 return navigator.credentials.get({
@@ -212,7 +212,7 @@ function LoginForm() {
                             signature: bufferEncode(sig),
                             userHandle: bufferEncode(userHandle),
                         },
-                    })
+                    }),
                 );
             })
             .then((response) => {

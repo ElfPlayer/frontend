@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
             width: "100% !important",
             height: "auto !important",
             borderRadius: theme.shape.borderRadius,
-        }
+        },
     },
     paper: {
         marginBottom: theme.spacing(3),
@@ -55,11 +55,11 @@ export default function PDFViewer() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const removeTextLayerOffset = () => {
         const textLayers = document.querySelectorAll(
-            ".react-pdf__Page__textContent"
+            ".react-pdf__Page__textContent",
         );
         textLayers.forEach((layer) => {
             const { style } = layer;
@@ -79,7 +79,7 @@ export default function PDFViewer() {
                         t("fileManager.pdfLoadingError", {
                             msg: error.message,
                         }),
-                        "error"
+                        "error",
                     );
                 }}
                 loading={

@@ -17,7 +17,7 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
-import { Delete, DeleteForever, FilterList,LinkOff } from "@material-ui/icons";
+import { Delete, DeleteForever, FilterList, LinkOff } from "@material-ui/icons";
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
@@ -99,7 +99,7 @@ export default function File() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const loadList = () => {
@@ -179,7 +179,7 @@ export default function File() {
         } else if (selectedIndex > 0) {
             newSelected = newSelected.concat(
                 selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1)
+                selected.slice(selectedIndex + 1),
             );
         }
 
@@ -447,7 +447,7 @@ export default function File() {
                                     <TableCell>
                                         {formatLocalTime(
                                             row.CreatedAt,
-                                            "YYYY-MM-DD H:mm:ss"
+                                            "YYYY-MM-DD H:mm:ss",
                                         )}
                                     </TableCell>
                                     <TableCell>

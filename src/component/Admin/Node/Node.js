@@ -101,7 +101,7 @@ export default function Node() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const loadList = () => {
@@ -129,7 +129,7 @@ export default function Node() {
                     "top",
                     "right",
                     desired === 1 ? t("nodeDisabled") : t("nodeEnabled"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -273,7 +273,7 @@ export default function Node() {
                                                 onClick={() =>
                                                     toggleNode(
                                                         row.ID,
-                                                        1 - row.Status
+                                                        1 - row.Status,
                                                     )
                                                 }
                                                 size={"small"}
@@ -290,7 +290,7 @@ export default function Node() {
                                                 onClick={() =>
                                                     history.push(
                                                         "/admin/node/edit/" +
-                                                            row.ID
+                                                            row.ID,
                                                     )
                                                 }
                                                 size={"small"}

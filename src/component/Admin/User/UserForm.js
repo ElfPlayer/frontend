@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import React, { useCallback, useEffect,useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { toggleSnackbar } from "../../../redux/explorer";
@@ -48,7 +48,7 @@ export default function UserForm(props) {
                   Status: "0", // 转换类型
                   GroupID: "2", // 转换类型
                   TwoFactor: "",
-              }
+              },
     );
     const [groups, setGroups] = useState([]);
 
@@ -58,7 +58,7 @@ export default function UserForm(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -98,7 +98,7 @@ export default function UserForm(props) {
                     "top",
                     "right",
                     props.user ? t("saved") : t("added"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -121,7 +121,7 @@ export default function UserForm(props) {
                     </MenuItem>
                 );
             }),
-        [groups]
+        [groups],
     );
 
     return (

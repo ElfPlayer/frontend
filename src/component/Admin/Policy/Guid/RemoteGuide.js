@@ -142,7 +142,7 @@ export default function RemoteGuide(props) {
                       file_type: "",
                       chunk_size: 25 << 20,
                   },
-              }
+              },
     );
 
     const handleChange = (name) => (event) => {
@@ -170,7 +170,7 @@ export default function RemoteGuide(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const testSlave = () => {
@@ -215,7 +215,7 @@ export default function RemoteGuide(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
                 setActiveStep(5);
             })
@@ -547,7 +547,7 @@ export default function RemoteGuide(props) {
                                             }
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -601,7 +601,7 @@ export default function RemoteGuide(props) {
                                         required
                                         value={policy.IsOriginLinkEnable}
                                         onChange={handleChange(
-                                            "IsOriginLinkEnable"
+                                            "IsOriginLinkEnable",
                                         )}
                                         row
                                     >
@@ -889,7 +889,7 @@ export default function RemoteGuide(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>

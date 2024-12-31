@@ -105,7 +105,7 @@ export default function Policy() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -116,7 +116,7 @@ export default function Policy() {
                 "top",
                 "right",
                 query.get("msg") + ", " + query.get("err"),
-                "warning"
+                "warning",
             );
         }
     }, [location]);

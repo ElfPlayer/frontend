@@ -44,7 +44,7 @@ export default function EditPro(props) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const submitPolicy = (e) => {
@@ -65,7 +65,7 @@ export default function EditPro(props) {
                     "top",
                     "right",
                     props.policy ? t("policySaved") : t("policyAdded"),
-                    "success"
+                    "success",
                 );
             })
             .catch((error) => {
@@ -144,7 +144,7 @@ export default function EditPro(props) {
                                         <Input
                                             value={policy.BucketName}
                                             onChange={handleChange(
-                                                "BucketName"
+                                                "BucketName",
                                             )}
                                         />
                                     </FormControl>
@@ -257,7 +257,7 @@ export default function EditPro(props) {
                                             required
                                             value={policy.AutoRename}
                                             onChange={handleChange(
-                                                "AutoRename"
+                                                "AutoRename",
                                             )}
                                             row
                                         >
@@ -290,7 +290,7 @@ export default function EditPro(props) {
                                             multiline
                                             value={policy.DirNameRule}
                                             onChange={handleChange(
-                                                "DirNameRule"
+                                                "DirNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -307,7 +307,7 @@ export default function EditPro(props) {
                                             multiline
                                             value={policy.FileNameRule}
                                             onChange={handleChange(
-                                                "FileNameRule"
+                                                "FileNameRule",
                                             )}
                                         />
                                     </FormControl>
@@ -324,7 +324,7 @@ export default function EditPro(props) {
                                             required
                                             value={policy.IsOriginLinkEnable}
                                             onChange={handleChange(
-                                                "IsOriginLinkEnable"
+                                                "IsOriginLinkEnable",
                                             )}
                                             row
                                         >
@@ -361,7 +361,7 @@ export default function EditPro(props) {
                                                 policy.OptionsSerialized.token
                                             }
                                             onChange={handleOptionChange(
-                                                "token"
+                                                "token",
                                             )}
                                         />
                                     </FormControl>
@@ -381,7 +381,7 @@ export default function EditPro(props) {
                                                     .file_type
                                             }
                                             onChange={handleOptionChange(
-                                                "file_type"
+                                                "file_type",
                                             )}
                                         />
                                     </FormControl>
@@ -401,7 +401,7 @@ export default function EditPro(props) {
                                                     .mimetype
                                             }
                                             onChange={handleOptionChange(
-                                                "mimetype"
+                                                "mimetype",
                                             )}
                                         />
                                     </FormControl>
@@ -421,7 +421,7 @@ export default function EditPro(props) {
                                                     .od_redirect
                                             }
                                             onChange={handleOptionChange(
-                                                "od_redirect"
+                                                "od_redirect",
                                             )}
                                         />
                                     </FormControl>
@@ -443,7 +443,7 @@ export default function EditPro(props) {
                                                     .od_proxy
                                             }
                                             onChange={handleOptionChange(
-                                                "od_proxy"
+                                                "od_proxy",
                                             )}
                                         />
                                     </FormControl>
@@ -463,7 +463,7 @@ export default function EditPro(props) {
                                                     .od_driver
                                             }
                                             onChange={handleOptionChange(
-                                                "od_driver"
+                                                "od_driver",
                                             )}
                                         />
                                     </FormControl>
@@ -482,7 +482,7 @@ export default function EditPro(props) {
                                                 policy.OptionsSerialized.region
                                             }
                                             onChange={handleOptionChange(
-                                                "region"
+                                                "region",
                                             )}
                                         />
                                     </FormControl>
@@ -502,7 +502,7 @@ export default function EditPro(props) {
                                                     .server_side_endpoint
                                             }
                                             onChange={handleOptionChange(
-                                                "server_side_endpoint"
+                                                "server_side_endpoint",
                                             )}
                                         />
                                     </FormControl>
@@ -526,7 +526,7 @@ export default function EditPro(props) {
                                                     .chunk_size
                                             }
                                             onChange={handleOptionChange(
-                                                "chunk_size"
+                                                "chunk_size",
                                             )}
                                         />
                                     </FormControl>
@@ -546,7 +546,7 @@ export default function EditPro(props) {
                                                     .placeholder_with_size
                                             }
                                             onChange={handleOptionChange(
-                                                "placeholder_with_size"
+                                                "placeholder_with_size",
                                             )}
                                             row
                                         >
@@ -587,7 +587,7 @@ export default function EditPro(props) {
                                                     .tps_limit
                                             }
                                             onChange={handleOptionChange(
-                                                "tps_limit"
+                                                "tps_limit",
                                             )}
                                         />
                                     </FormControl>
@@ -610,7 +610,7 @@ export default function EditPro(props) {
                                                     .tps_limit_burst
                                             }
                                             onChange={handleOptionChange(
-                                                "tps_limit_burst"
+                                                "tps_limit_burst",
                                             )}
                                         />
                                     </FormControl>
@@ -630,7 +630,7 @@ export default function EditPro(props) {
                                                     .s3_path_style
                                             }
                                             onChange={handleOptionChange(
-                                                "s3_path_style"
+                                                "s3_path_style",
                                             )}
                                             row
                                         >
@@ -666,7 +666,7 @@ export default function EditPro(props) {
                                                     .thumb_exts
                                             }
                                             onChange={handleOptionChange(
-                                                "thumb_exts"
+                                                "thumb_exts",
                                             )}
                                         />
                                     </FormControl>

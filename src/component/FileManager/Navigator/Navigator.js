@@ -181,7 +181,7 @@ class NavigatorComponent extends Component {
             newPath,
             this.props.share,
             this.search ? this.search.keywords : "",
-            this.search ? this.search.searchPath : ""
+            this.search ? this.search.searchPath : "",
         )
             .then((response) => {
                 this.currentID = response.data.parent;
@@ -274,7 +274,7 @@ class NavigatorComponent extends Component {
             this.handleClose();
         } else {
             this.props.navigateToPath(
-                "/" + this.state.folders.slice(0, id + 1).join("/")
+                "/" + this.state.folders.slice(0, id + 1).join("/"),
             );
             this.handleClose();
         }
@@ -388,7 +388,7 @@ class NavigatorComponent extends Component {
                     {
                         [classes.roundBorder]: this.props.isShare,
                     },
-                    classes.container
+                    classes.container,
                 )}
             >
                 <div className={classes.navigatorContainer}>
@@ -419,7 +419,7 @@ class NavigatorComponent extends Component {
                                         onClose={this.handleClose}
                                         folders={this.state.folders.slice(
                                             0,
-                                            -1
+                                            -1,
                                         )}
                                         navigateTo={this.navigateTo}
                                     />
@@ -437,7 +437,7 @@ class NavigatorComponent extends Component {
                                     onClick={(e) =>
                                         this.navigateTo(
                                             e,
-                                            this.state.folders.length - 1
+                                            this.state.folders.length - 1,
                                         )
                                     }
                                 />
@@ -493,7 +493,7 @@ NavigatorComponent.propTypes = {
 
 const Navigator = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(NavigatorComponent))));
 
 export default Navigator;

@@ -68,7 +68,7 @@ export default function WebDAV() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const copyToClipboard = (text) => {
@@ -80,7 +80,7 @@ export default function WebDAV() {
                 "top",
                 "center",
                 t("setting.pleaseManuallyCopy"),
-                "warning"
+                "warning",
             );
         }
     };
@@ -242,7 +242,7 @@ export default function WebDAV() {
                                                         className={classes.copy}
                                                         onClick={() =>
                                                             copyToClipboard(
-                                                                row.Password
+                                                                row.Password,
                                                             )
                                                         }
                                                         href={"javascript:void"}
@@ -262,7 +262,7 @@ export default function WebDAV() {
                                                             "timeAgoLocaleCode",
                                                             {
                                                                 ns: "common",
-                                                            }
+                                                            },
                                                         )}
                                                     />
                                                 </TableCell>
@@ -272,15 +272,15 @@ export default function WebDAV() {
                                                         title={
                                                             row.Readonly
                                                                 ? t(
-                                                                      "setting.readonlyOff"
+                                                                      "setting.readonlyOff",
                                                                   )
                                                                 : t(
-                                                                      "setting.readonlyOn"
+                                                                      "setting.readonlyOn",
                                                                   )
                                                         }
                                                         onClick={() =>
                                                             toggleAccountReadonly(
-                                                                id
+                                                                id,
                                                             )
                                                         }
                                                     >
@@ -306,49 +306,52 @@ export default function WebDAV() {
                                                             />
                                                         </IconButton>
                                                     </Tooltip>
-                                                    {user.group.allowWebDAVProxy && (<Tooltip
-                                                        placement="top"
-                                                        title={
-                                                            row.UseProxy
-                                                                ? t(
-                                                                    "setting.useProxyOff"
+                                                    {user.group
+                                                        .allowWebDAVProxy && (
+                                                        <Tooltip
+                                                            placement="top"
+                                                            title={
+                                                                row.UseProxy
+                                                                    ? t(
+                                                                          "setting.useProxyOff",
+                                                                      )
+                                                                    : t(
+                                                                          "setting.useProxyOn",
+                                                                      )
+                                                            }
+                                                            onClick={() =>
+                                                                toggleAccountUseProxy(
+                                                                    id,
                                                                 )
-                                                                : t(
-                                                                    "setting.useProxyOn"
-                                                                )
-                                                        }
-                                                        onClick={() =>
-                                                            toggleAccountUseProxy(
-                                                                id
-                                                            )
-                                                        }
-                                                    >
-                                                        <IconButton>
-                                                            <ToggleIcon
-                                                                on={
-                                                                    row.UseProxy
-                                                                }
-                                                                onIcon={
-                                                                    <CloudOff
-                                                                        fontSize={
-                                                                            "small"
-                                                                        }
-                                                                    />
-                                                                }
-                                                                offIcon={
-                                                                    <Cloud
-                                                                        fontSize={
-                                                                            "small"
-                                                                        }
-                                                                    />
-                                                                }
-                                                            />
-                                                        </IconButton>
-                                                    </Tooltip>)}
+                                                            }
+                                                        >
+                                                            <IconButton>
+                                                                <ToggleIcon
+                                                                    on={
+                                                                        row.UseProxy
+                                                                    }
+                                                                    onIcon={
+                                                                        <CloudOff
+                                                                            fontSize={
+                                                                                "small"
+                                                                            }
+                                                                        />
+                                                                    }
+                                                                    offIcon={
+                                                                        <Cloud
+                                                                            fontSize={
+                                                                                "small"
+                                                                            }
+                                                                        />
+                                                                    }
+                                                                />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    )}
                                                     <Tooltip
                                                         placement="top"
                                                         title={t(
-                                                            "setting.delete"
+                                                            "setting.delete",
                                                         )}
                                                         onClick={() =>
                                                             deleteAccount(id)

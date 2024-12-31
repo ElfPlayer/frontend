@@ -35,7 +35,7 @@ export default function AddRedeem({ open, onClose, products, onSuccess }) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     const handleChange = (name) => (event) => {

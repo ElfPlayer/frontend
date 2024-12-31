@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
-            3
+            3,
         )}px`,
     },
     avatar: {
@@ -61,7 +61,7 @@ function Activation() {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const history = useHistory();
 
@@ -69,7 +69,7 @@ function Activation() {
 
     useEffect(() => {
         API.get(
-            "/user/activate/" + query.get("id") + "?sign=" + query.get("sign")
+            "/user/activate/" + query.get("id") + "?sign=" + query.get("sign"),
         )
             .then((response) => {
                 setEmail(response.data);

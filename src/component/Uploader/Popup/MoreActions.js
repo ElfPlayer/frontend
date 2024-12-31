@@ -47,11 +47,11 @@ export default function MoreActions({
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
     const RefreshStorage = useCallback(
         () => dispatch(refreshStorage()),
-        [dispatch]
+        [dispatch],
     );
 
     const actionClicked = (next) => () => {
@@ -68,14 +68,14 @@ export default function MoreActions({
                         "top",
                         "right",
                         t("uploadSessionCleaned"),
-                        "success"
+                        "success",
                     );
                 } else {
                     ToggleSnackbar(
                         "top",
                         "right",
                         response.rawData.msg,
-                        "warning"
+                        "warning",
                     );
                 }
                 deleteTask((u) => u.task.type !== TaskType.resumeHint);
@@ -164,7 +164,7 @@ export default function MoreActions({
             filter,
             setFilter,
             cleanFinished,
-        ]
+        ],
     );
 
     const onConcurrentLimitSave = (val) => {

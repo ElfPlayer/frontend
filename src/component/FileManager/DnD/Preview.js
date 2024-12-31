@@ -45,7 +45,7 @@ const diliverIcon = (object, viewMethod, classes) => {
 const Preview = (props) => {
     const selected = useSelector((state) => state.explorer.selected);
     const viewMethod = useSelector(
-        (state) => state.viewUpdate.explorerViewMethod
+        (state) => state.viewUpdate.explorerViewMethod,
     );
     const classes = useStyles();
     return (

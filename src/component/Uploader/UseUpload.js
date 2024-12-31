@@ -12,7 +12,7 @@ export function useUpload(uploader) {
     const ToggleSnackbar = useCallback(
         (vertical, horizontal, msg, color) =>
             dispatch(toggleSnackbar(vertical, horizontal, msg, color)),
-        [dispatch]
+        [dispatch],
     );
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export function useUpload(uploader) {
             progress.total.loaded > startLoadedRef.current
                 ? Math.floor(
                       (progress.total.loaded - startLoadedRef.current) /
-                          duration
+                          duration,
                   )
                 : 0;
         const resAvg =

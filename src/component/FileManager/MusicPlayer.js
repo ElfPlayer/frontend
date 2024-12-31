@@ -104,7 +104,7 @@ class MusicPlayerComponent extends Component {
                 });
                 this.props.audioPreviewSetIsOpen(true);
                 this.props.showAudioPreview(
-                    explorer.initState.audioPreview.first
+                    explorer.initState.audioPreview.first,
                 );
                 return;
             }
@@ -121,7 +121,7 @@ class MusicPlayerComponent extends Component {
                             encodeURIComponent(
                                 value.path === "/"
                                     ? value.path + value.name
-                                    : value.path + "/" + value.name
+                                    : value.path + "/" + value.name,
                             );
                     } else {
                         src = baseURL + "/file/preview/" + value.id;
@@ -232,7 +232,7 @@ class MusicPlayerComponent extends Component {
         });*/
         this.props.audioPreviewSetPlaying(
             this.state.items[this.state.currentIndex].intro,
-            false
+            false,
         );
     };
 
@@ -245,7 +245,7 @@ class MusicPlayerComponent extends Component {
         })*/
         this.props.audioPreviewSetPlaying(
             this.state.items[this.state.currentIndex]?.intro,
-            true
+            true,
         );
     };
 
@@ -461,7 +461,7 @@ MusicPlayerComponent.propTypes = {
 
 const MusicPlayer = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withStyles(styles)(withRouter(withTranslation()(MusicPlayerComponent))));
 
 export default MusicPlayer;

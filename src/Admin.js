@@ -52,8 +52,8 @@ const theme = createTheme(
         palette: {
             background: {},
         },
-        shape:{
-            borderRadius:12,
+        shape: {
+            borderRadius: 12,
         },
         overrides: {
             MuiButton: {
@@ -68,7 +68,7 @@ const theme = createTheme(
             },
         },
     },
-    zhCN
+    zhCN,
 );
 
 export default function Admin() {

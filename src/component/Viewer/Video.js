@@ -22,13 +22,12 @@ import { useTranslation } from "react-i18next";
 import { baseURL } from "../../middleware/Api";
 import TypeIcon from "./../FileManager/TypeIcon";
 
-
-const Artplayer = React.lazy(() =>
-    import(
-        /* webpackChunkName: "artplayer" */ "artplayer/examples/react/Artplayer"
-    )
+const Artplayer = React.lazy(
+    () =>
+        import(
+            /* webpackChunkName: "artplayer" */ "artplayer/examples/react/Artplayer"
+        ),
 );
-
 
 const externalPlayers = [
     {

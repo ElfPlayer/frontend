@@ -13,12 +13,14 @@ import { showImgPreivew } from "../../redux/explorer";
 
 const styles = () => ({});
 
-
 const mapStateToProps = (state) => {
     // const pagination = useSelector((state) => state.viewUpdate.pagination);
-    const pagination=state.viewUpdate.pagination
-    const startIndex= (pagination.page - 1) * pagination.size;
-    const other=state.explorer.fileList.slice(startIndex,pagination.size+startIndex)
+    const pagination = state.viewUpdate.pagination;
+    const startIndex = (pagination.page - 1) * pagination.size;
+    const other = state.explorer.fileList.slice(
+        startIndex,
+        pagination.size + startIndex,
+    );
     // console.log("🚀 ~ mapStateToProps ~ startIndex:", startIndex,pagination.size,state.explorer.fileList,state.explorer.fileList.slice(startIndex,pagination.size))
     return {
         first: state.explorer.imgPreview.first,
@@ -40,7 +42,7 @@ class ImagPreviewComponent extends Component {
         photoIndex: 0,
         isOpen: false,
     };
-    
+
     UNSAFE_componentWillReceiveProps = (nextProps) => {
         // console.log("🚀 ~ ImagPreviewComponent ~ nextProps:", nextProps)
         const items = [];

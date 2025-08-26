@@ -5,8 +5,8 @@ module.exports = function (app) {
         app.use(
             p,
             proxy({
-                target: "http://localhost:5212",
-                // target: "http://106.15.228.164:5212",
+                // target: "http://localhost:5212",
+                target: "http://106.15.228.164:5212",
                 changeOrigin: true,
             }),
         ),
